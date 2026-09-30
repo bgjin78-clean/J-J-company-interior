@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'J&J adcompany',
   nameKo: '제이앤제이 애드컴퍼니',
-  phoneDisplay: '',
-  phoneTel: '',
+  phoneDisplay: '010-4026-0892',
+  phoneTel: '01040260892',
   /** 넣으면 문의 양식이 메일 앱으로 전달됩니다. */
   email: '',
   hours: '평일 09:00–18:00',
@@ -12,6 +12,8 @@ export const SITE = {
 
 export const priorityRegions = ['창원', '마산', '진해', '밀양', '김해', '함안'] as const
 
+export const phoneHref = `tel:${SITE.phoneTel}`
+
 export function pageTitle(page?: string) {
-  return page ? `${page} | ${SITE.name}` : `${SITE.name} | 철거·인테리어 홍보`
+  return page ? `${page} | 철거, 인테리어` : '철거, 인테리어'
 }

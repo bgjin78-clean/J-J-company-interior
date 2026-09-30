@@ -7,7 +7,7 @@ export function InteriorPage() {
     <>
       <Seo
         title="인테리어"
-        description="창원·마산·진해·밀양·김해·함안 욕실, 주방, 도배장판, 조명, 몰딩, 타일, 목공, 부분수리. J&J adcompany 제휴 시공 안내."
+        description="욕실, 주방, 도배장판, 조명, 몰딩, 타일, 목공, 부분수리 인테리어 안내."
       />
       <section className="page-hero">
         <div className="wrap page-hero-grid">
@@ -16,8 +16,7 @@ export function InteriorPage() {
             <h1>생활 마감을 제휴 시공으로</h1>
             <p className="lede">
               욕실과 주방, 도배·장판, 조명, 몰딩, 타일·페인트, 문과 목공, 부분수리.
-              우선 홍보 여섯 지역에서 필요한 철거가 있으면 해체 일정을 앞에 붙이고,
-              마감은 제휴 업체가 이어서 합니다.
+              철거가 필요하면 해체를 앞에 두고, 마감은 제휴 업체가 이어서 합니다.
             </p>
           </div>
           <img src="/images/remodel.jpg" alt="마감이 끝난 거실" />

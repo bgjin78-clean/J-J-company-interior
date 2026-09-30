@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
+import { KoreaPartnerMap } from '../components/KoreaPartnerMap'
 import { Seo } from '../components/Seo'
-import { areas } from '../data/areas'
 
 const terms = [
   {
     title: '시공 주체',
-    text: '철거·인테리어·폐기물 처리를 직접 수행하는 업체. 홍보만 하는 영업 조직은 받지 않습니다.',
+    text: '철거·인테리어·폐기물 처리를 직접 수행하는 업체만 받습니다.',
   },
   {
-    title: '권역',
-    text: '사무실이나 실제 출동 팀이 우선 여섯 지역 안에 있어야 합니다. 창원은 이미 1곳이 있어 후순위입니다.',
+    title: '그 외 지역',
+    text: '이미 제휴가 정해진 지역이 아닌 곳에서 활동하는 업체를 모집합니다.',
   },
   {
     title: '견적 방식',
@@ -17,7 +17,7 @@ const terms = [
   },
   {
     title: '소개 자료',
-    text: '상호, 대표 연락처, 최근 현장 사진 사용 동의가 있어야 이 사이트에 이름을 올립니다.',
+    text: '상호, 연락처, 최근 현장 사진 사용 동의가 있어야 이름을 올립니다.',
   },
 ]
 
@@ -26,17 +26,16 @@ export function PartnersPage() {
     <>
       <Seo
         title="협력업체 모집"
-        description="J&J adcompany가 철거·인테리어 제휴 시공업체를 모집합니다. 창원 1곳 선정, 마산·진해·밀양·김해·함안 우선."
+        description="철거·인테리어 협력업체를 그 외 지역에서 모집합니다."
       />
       <section className="page-hero">
         <div className="wrap page-hero-grid">
           <div>
             <p className="kicker">협력업체 모집</p>
-            <h1>같이 알릴 시공 파트너</h1>
+            <h1>그 외 지역 시공 파트너</h1>
             <p className="lede">
-              J&amp;J adcompany는 광고로 지역 업체를 소개합니다. 고객이 남긴 상담은
-              선정된 업체로 연결되고, 계약과 시공 책임은 그 업체에 있습니다. 지금은
-              창원 제휴 1곳이 정해져 있고, 비어 있는 권역을 이어서 채웁니다.
+              철거와 인테리어를 직접 하는 업체를 모집합니다. 이미 제휴가 있는 지역이
+              아닌 곳의 신청을 받으며, 상담과 시공은 선정된 업체가 맡습니다.
             </p>
             <Link className="btn btn-solid" to="/contact?type=partner">
               협력 신청하기
@@ -49,35 +48,25 @@ export function PartnersPage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">현재 선정</p>
-            <h2>창원 제휴 1곳</h2>
-          </div>
-          <article className="selected">
-            <p>선정 완료</p>
-            <h3>창원 시공 파트너</h3>
-            <p>
-              창원을 거점으로 활동하는 철거·인테리어 업체입니다. 상호와 연락처는
-              소개 문안이 확정되면 게시합니다. 마산, 진해, 밀양, 김해, 함안 상담도
-              일정에 따라 이 업체로 먼저 연결합니다.
+            <p className="kicker">지역</p>
+            <h2>시·도로 보는 협력업체</h2>
+            <p className="sub">
+              대한민국을 도와 시·군으로 나눴습니다. 색이 들어간 창원시에 제휴 시공업체가 있습니다.
+              마산과 진해는 창원시에 포함됩니다.
             </p>
-          </article>
-          <div className="area-index area-index-gap">
-            {areas.map((area) => (
-              <div key={area.slug} className="area-row area-row-static">
-                <strong>{area.name}</strong>
-                <span>{area.partner ? '제휴 선정' : '모집·연결 검토'}</span>
-                <em>{area.partner ? '추가 선정은 후순위' : '우선 홍보 지역'}</em>
-              </div>
-            ))}
           </div>
+          <KoreaPartnerMap />
         </div>
       </section>
 
-      <section className="band">
+      <section className="band band-tight">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">보는 기준</p>
-            <h2>신청 전에 맞춰 보는 항목</h2>
+            <p className="kicker">모집</p>
+            <h2>그 외 지역 업체를 찾습니다</h2>
+            <p className="sub">
+              활동 지역과 주요 공종을 적어 주시면 비어 있는 지역부터 검토합니다.
+            </p>
           </div>
           <div className="term-grid">
             {terms.map((term, index) => (

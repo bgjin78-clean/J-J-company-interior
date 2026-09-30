@@ -7,7 +7,7 @@ export function DemolitionPage() {
     <>
       <Seo
         title="철거·정리"
-        description="부분철거, 인테리어철거, 상가·사무실, 원상복구, 욕실·주방 철거, 폐기물 처리. 우선 홍보 지역 제휴 시공 안내."
+        description="부분철거, 인테리어철거, 상가·사무실, 원상복구, 욕실·주방 철거, 폐기물 처리."
       />
       <section className="page-hero">
         <div className="wrap page-hero-grid">

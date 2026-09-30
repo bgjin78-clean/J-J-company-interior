@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { Seo } from '../components/Seo'
-import { priorityRegions } from '../data/site'
 import {
   loadReviews,
   reviewCategories,
@@ -38,16 +37,15 @@ export function ReviewsPage() {
     <>
       <Seo
         title="작업후기"
-        description="창원 제휴 시공 이후의 작업후기를 올리는 자리입니다. 동의한 기록만 게시합니다."
+        description="시공 후 동의한 작업후기만 올리는 자리입니다."
       />
       <section className="page-hero">
         <div className="wrap">
           <p className="kicker">작업후기</p>
           <h1>시공 기록을 쌓는 자리</h1>
           <p className="lede">
-            창원 제휴 현장이 끝나면, 고객이 동의한 이야기만 여기에 남깁니다. 아직
-            공개할 후기가 없으면 목록은 비어 있습니다. 예시로 만든 후기는 올리지
-            않습니다.
+            시공이 끝나고 고객이 동의한 이야기만 여기에 남깁니다. 아직 공개할
+            후기가 없으면 목록은 비어 있습니다.
           </p>
         </div>
       </section>
@@ -68,7 +66,7 @@ export function ReviewsPage() {
           {filtered.length === 0 ? (
             <div className="empty">
               <h2>아직 공개된 후기가 없습니다</h2>
-              <p>창원 제휴 시공부터 사진 사용에 동의한 기록만 차례로 올립니다.</p>
+              <p>사진 사용에 동의한 시공 기록만 차례로 올립니다.</p>
             </div>
           ) : (
             <div className="review-list">
@@ -98,11 +96,7 @@ export function ReviewsPage() {
               <div className="form-row">
                 <label>
                   지역
-                  <select name="area" required defaultValue="창원">
-                    {priorityRegions.map((region) => (
-                      <option key={region}>{region}</option>
-                    ))}
-                  </select>
+                  <input name="area" required maxLength={40} placeholder="시공 지역" />
                 </label>
                 <label>
                   공종

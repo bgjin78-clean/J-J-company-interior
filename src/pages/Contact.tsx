@@ -1,9 +1,14 @@
 import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import emailjs from '@emailjs/browser'
 import { Seo } from '../components/Seo'
 import { faqs } from '../data/faq'
-import { SITE, priorityRegions } from '../data/site'
+import { SITE, phoneHref } from '../data/site'
+
+const EMAILJS_PUBLIC_KEY = 'JKsVOKPtnWHIr2BCV'
+const EMAILJS_SERVICE_ID = 'allbarunclean'
+const EMAILJS_TEMPLATE_ID = 'template_b4ox5js'
 
 const topics = ['욕실', '주방', '도배·장판', '조명', '철거', '폐기물', '상가 원상복구', '부분수리', '기타']
 
@@ -12,62 +17,74 @@ type Kind = 'customer' | 'partner'
 export function ContactPage() {
   const [params] = useSearchParams()
   const initialKind: Kind = params.get('type') === 'partner' ? 'partner' : 'customer'
-  const initialArea = priorityRegions.find((region) => region === params.get('area')) ?? '창원'
   const [kind, setKind] = useState<Kind>(initialKind)
   const [sent, setSent] = useState('')
+  const [sending, setSending] = useState(false)
 
   const headline = useMemo(
     () => (kind === 'partner' ? '협력업체 신청' : '시공 상담'),
     [kind],
   )
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const data = new FormData(event.currentTarget)
+    const form = event.currentTarget
+    const data = new FormData(form)
     const name = String(data.get('name') ?? '').trim()
     const phone = String(data.get('phone') ?? '').trim()
     const area = String(data.get('area') ?? '').trim()
     const topic = String(data.get('topic') ?? '').trim()
     const message = String(data.get('message') ?? '').trim()
     const body = [
-      `[J&J adcompany] ${headline}`,
+      `[철거, 인테리어] ${headline}`,
       `이름: ${name}`,
       `연락처: ${phone}`,
       `지역: ${area}`,
       `분야: ${topic || '-'}`,
       '',
       message,
+      '',
+      `회신 전화: ${SITE.phoneDisplay}`,
     ].join('\n')
 
-    if (SITE.email) {
-      window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(`[J&J adcompany] ${headline} - ${name}`)}&body=${encodeURIComponent(body)}`
-      setSent('메일 앱으로 문의 내용을 넘겼습니다. 전송 버튼을 눌러 주세요.')
-      return
+    setSending(true)
+    setSent('')
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: name,
+          name,
+          phone,
+          region: area,
+          service: `${headline} / ${topic || '-'}`,
+          message: body,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      )
+      form.reset()
+      setSent('상담이 접수되었습니다. 확인 후 연락드리겠습니다.')
+    } catch {
+      setSent(`전송에 실패했습니다. ${SITE.phoneDisplay}로 전화해 주세요.`)
+    } finally {
+      setSending(false)
     }
-
-    const key = 'jj-adcompany-inquiries'
-    const prev = JSON.parse(localStorage.getItem(key) || '[]') as string[]
-    localStorage.setItem(key, JSON.stringify([body, ...prev].slice(0, 30)))
-    setSent('문의 내용을 이 브라우저에 보관했습니다. 수신 메일이 연결되기 전에는 담당자 화면으로 전달되지 않습니다.')
-    event.currentTarget.reset()
   }
 
   return (
     <>
       <Seo
         title="문의"
-        description="창원·마산·진해·밀양·김해·함안 철거·인테리어 상담과 협력업체 신청."
+        description="철거·인테리어 상담과 그 외 지역 협력업체 신청."
       />
       <section className="page-hero">
         <div className="wrap">
           <p className="kicker">문의</p>
           <h1>상담과 협력 신청</h1>
           <p className="lede">
-            시공이 필요한 주소와, 제휴를 원하는 업체를 같은 양식으로 받습니다. 우선
-            지역은 창원, 마산, 진해, 밀양, 김해, 함안입니다.
-            {SITE.phoneDisplay
-              ? ` 전화 ${SITE.phoneDisplay}.`
-              : ' 대표 전화는 제휴 소개가 확정되면 이 자리에 표시합니다.'}
+            시공 상담과 그 외 지역 협력업체 신청을 받습니다. 전화는{' '}
+            <a href={phoneHref}>{SITE.phoneDisplay}</a> 입니다.
           </p>
         </div>
       </section>
@@ -93,12 +110,7 @@ export function ContactPage() {
             <div className="form-row">
               <label>
                 지역
-                <select name="area" defaultValue={initialArea}>
-                  {priorityRegions.map((region) => (
-                    <option key={region}>{region}</option>
-                  ))}
-                  <option>기타 지역</option>
-                </select>
+                <input name="area" required maxLength={40} placeholder="활동 지역" />
               </label>
               <label>
                 {kind === 'partner' ? '주요 공종' : '관심 분야'}
@@ -122,8 +134,8 @@ export function ContactPage() {
                 }
               />
             </label>
-            <button className="btn btn-solid" type="submit">
-              {headline} 보내기
+            <button className="btn btn-solid" type="submit" disabled={sending}>
+              {sending ? '전송 중' : `${headline} 보내기`}
             </button>
             {sent ? <p className="form-note">{sent}</p> : null}
           </form>
