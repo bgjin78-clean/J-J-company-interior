@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://interior.jjadcompany.co.kr/sitemap.xml
