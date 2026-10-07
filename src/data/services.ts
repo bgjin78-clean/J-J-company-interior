@@ -14,7 +14,7 @@ export const demolitionServices: ServiceItem[] = [
     summary: '리모델링 전에 기존 마감재를 걷어 내고, 다음 공정이 들어가게 현장을 비우는 인테리어철거입니다.',
     points: ['화장실·주방·거실 마감 해체', '남길 배관·전기 표시', '후속 시공 동선 확보'],
     image: '/images/demo.jpg',
-    imageAlt: '인테리어철거를 준비하는 실내',
+    imageAlt: '마감이 걷힌 인테리어철거 현장',
   },
   {
     id: 'restore',
@@ -22,7 +22,7 @@ export const demolitionServices: ServiceItem[] = [
     summary: '임대가 끝날 때 계약서에 적힌 범위만 되돌려 인도하는 원상복구철거입니다.',
     points: ['복구 범위 사진 대조', '바닥·벽·천장 마감 철거', '폐기물 반출 후 현장 인도'],
     image: '/images/restore.jpg',
-    imageAlt: '원상복구철거를 앞둔 빈 실내',
+    imageAlt: '집기가 빠진 원상복구 현장',
   },
   {
     id: 'commercial',
@@ -30,15 +30,15 @@ export const demolitionServices: ServiceItem[] = [
     summary: '매장, 학원, 사무실을 비울 때 집기와 부착 인테리어를 일정에 맞춰 걷어 내는 상가철거입니다.',
     points: ['집기·간판 틀·가벽 해체', '영업 시간에 맞춘 야간·주말 협의', '승강기·하역 동선 확인'],
     image: '/images/commercial.jpg',
-    imageAlt: '상가철거 후 비어 있는 상업 공간',
+    imageAlt: '선반이 빠진 상가철거 현장',
   },
   {
     id: 'restaurant',
     title: '식당철거',
     summary: '식당과 카페의 홀, 주방 설비, 덕트를 영업이 끝난 일정에 맞춰 분리하는 식당철거입니다.',
     points: ['홀 집기·칸막이·바닥', '주방 설비·후드·덕트', '기름 구간은 따로 반출'],
-    image: '/images/commercial.jpg',
-    imageAlt: '식당철거로 비워 낸 상업 공간',
+    image: '/images/restaurant.jpg',
+    imageAlt: '후드가 남은 식당철거 현장',
   },
   {
     id: 'bathroom-kitchen',
@@ -46,7 +46,7 @@ export const demolitionServices: ServiceItem[] = [
     summary: '화장실 타일과 주방 싱크대처럼 물이 있는 마감을 누수 구간과 나눠 분리하는 욕실주방철거입니다.',
     points: ['타일·위생도기·수전', '싱크대·상판·후드', '하부 방수층 확인'],
     image: '/images/wet.jpg',
-    imageAlt: '욕실주방철거 대상인 세면 공간',
+    imageAlt: '타일과 싱크가 걷힌 욕실주방철거',
   },
   {
     id: 'partial',
@@ -54,7 +54,7 @@ export const demolitionServices: ServiceItem[] = [
     summary: '살려 둘 마감은 남기고, 손볼 구간만 해체합니다.',
     points: ['가벽·칸막이·마루·타일 일부', '분진이 번지지 않게 보양', '잔재 임시 정리'],
     image: '/images/partial.jpg',
-    imageAlt: '부분 해체 공사 중인 실내',
+    imageAlt: '한 구간만 뜯은 부분철거',
   },
   {
     id: 'waste',
@@ -62,7 +62,7 @@ export const demolitionServices: ServiceItem[] = [
     summary: '철거 잔재는 종류별로 나눠 반출하고, 처리 절차는 견적에 미리 적습니다.',
     points: ['혼합 건설폐기물 분리', '대형 폐기물·고철 안내', '작업 후 바닥 청소'],
     image: '/images/waste.jpg',
-    imageAlt: '정리 중인 공사 잔재',
+    imageAlt: '종류별로 나눈 철거 폐기물',
   },
 ]
 
