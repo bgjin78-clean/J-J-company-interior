@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 import { Seo } from '../components/Seo'
 import { faqs } from '../data/faq'
 import { CONTACT_DESCRIPTION, CONTACT_TITLE } from '../data/seo'
-import { SITE, phoneHref } from '../data/site'
+import { SITE } from '../data/site'
 
 const EMAILJS_PUBLIC_KEY = 'JKsVOKPtnWHIr2BCV'
 const EMAILJS_SERVICE_ID = 'allbarunclean'
@@ -94,11 +94,10 @@ export function ContactPage() {
       <Seo title={CONTACT_TITLE} description={CONTACT_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
-          <p className="kicker">문의</p>
           <h1>시공 상담</h1>
           <p className="lede lede-wide">
-            창원, 마산, 진해, 김해, 밀양, 함안 인테리어철거·상가철거·화장실·도배장판·우물천정
-            상담을 받습니다. 전화는 <a href={phoneHref}>{SITE.phoneDisplay}</a> 입니다.
+            경남지역 철거, 인테리어 상담을 받습니다. 전화상담은{' '}
+            <a href="tel:01040260829">010-4026-0829</a> 입니다.
           </p>
         </div>
       </section>

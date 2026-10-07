@@ -12,17 +12,19 @@ export function HomePage() {
     <>
       <Seo title={HOME_TITLE} description={HOME_DESCRIPTION} />
 
+      <p className="partner-call">
+        <Link to="/partners">지역별 협력업체 모집중</Link>
+      </p>
+
       <section className="hero">
         <div className="wrap hero-grid">
           <div>
-            <p className="kicker">창원 · 마산 · 진해 · 김해 · 밀양 · 함안</p>
             <h1>
-              창원 철거와 인테리어를
+              철거와 인테리어를
               <br />
               한 흐름으로 안내합니다
             </h1>
             <p className="lede">
-              창원, 마산, 진해, 김해, 밀양, 함안에서 철거와 인테리어를 합니다.
               비울 곳은 인테리어철거와 상가철거로, 화장실·주방·도배장판·우물천정은
               마감으로 이어갑니다.
             </p>
@@ -36,7 +38,7 @@ export function HomePage() {
             </div>
           </div>
           <figure className="hero-photo">
-            <img src="/images/hero.jpg" alt="창원 철거 후 마감한 주거 인테리어" />
+            <img src="/images/hero.jpg" alt="철거 후 마감한 주거 인테리어" />
             <figcaption>
               <strong>철거, 인테리어</strong>
               <span>해체부터 마감까지</span>

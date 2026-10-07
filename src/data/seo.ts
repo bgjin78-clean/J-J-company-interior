@@ -65,7 +65,7 @@ export function seoEntries(): SeoEntry[] {
       path: '/',
       title: HOME_TITLE,
       description: HOME_DESCRIPTION,
-      h1: '창원 철거와 인테리어를 한 흐름으로 안내합니다',
+      h1: '철거와 인테리어를 한 흐름으로 안내합니다',
       placename: '창원시',
     },
     {

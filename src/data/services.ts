@@ -81,15 +81,15 @@ export const interiorServices: ServiceItem[] = [
     summary: '수납과 동선에 맞춰 주방을 다시 배치합니다. 싱크대만 바꾸는 상담도 받습니다.',
     points: ['상부장·하부장', '상판과 후드', '조명·콘센트 위치'],
     image: '/images/kitchen.jpg',
-    imageAlt: '우드 상판이 있는 주방',
+    imageAlt: '상부장과 후드가 있는 주방',
   },
   {
     id: 'sink',
     title: '싱크대',
     summary: '상판, 하부장, 수전만 교체해도 주방 사용이 달라지는 싱크대 시공입니다.',
     points: ['싱크대 교체·이전', '상판·수전', '배수와 벽 타일 마감'],
-    image: '/images/kitchen.jpg',
-    imageAlt: '싱크대가 놓인 주방',
+    image: '/images/sink.jpg',
+    imageAlt: '상판과 수전이 있는 싱크대',
   },
   {
     id: 'tile-paint',
@@ -128,7 +128,7 @@ export const interiorServices: ServiceItem[] = [
     title: '우물천정',
     summary: '거실 천장을 한 단 올려 간접조명을 넣는 우물천정 시공입니다. 우물천장으로 부르는 현장도 같은 공정입니다.',
     points: ['우물 단차와 간접조명', '몰딩·도배장판과 이음', '등 위치와 점검구'],
-    image: '/images/lighting.jpg',
+    image: '/images/ceiling.jpg',
     imageAlt: '간접조명이 들어간 우물천정',
   },
   {
@@ -155,7 +155,7 @@ export const featured = [
   { id: 'bathroom', name: '화장실', path: '/interior#bathroom', image: '/images/bathroom.jpg' },
   { id: 'kitchen', name: '주방', path: '/interior#kitchen', image: '/images/kitchen.jpg' },
   { id: 'wallpaper', name: '도배장판', path: '/interior#wallpaper-floor', image: '/images/wallpaper.jpg' },
-  { id: 'ceiling', name: '우물천정', path: '/interior#ceiling', image: '/images/lighting.jpg' },
+  { id: 'ceiling', name: '우물천정', path: '/interior#ceiling', image: '/images/ceiling.jpg' },
 ] as const
 
 export const processSteps = [
