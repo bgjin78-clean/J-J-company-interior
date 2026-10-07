@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { Seo } from '../components/Seo'
+import { REVIEWS_DESCRIPTION, REVIEWS_TITLE } from '../data/seo'
 import {
   loadReviews,
   reviewCategories,
@@ -35,17 +36,15 @@ export function ReviewsPage() {
 
   return (
     <>
-      <Seo
-        title="작업후기"
-        description="시공 후 동의한 작업후기만 올리는 자리입니다."
-      />
+      <Seo title={REVIEWS_TITLE} description={REVIEWS_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
           <p className="kicker">작업후기</p>
           <h1>시공 기록을 쌓는 자리</h1>
-          <p className="lede">
-            시공이 끝나고 고객이 동의한 이야기만 여기에 남깁니다. 아직 공개할
-            후기가 없으면 목록은 비어 있습니다.
+          <p className="lede lede-wide">
+            창원, 마산, 진해, 김해, 밀양, 함안의 인테리어철거, 상가철거, 화장실, 주방,
+            도배장판 시공이 끝나고 고객이 동의한 이야기만 남깁니다. 아직 공개할 후기가
+            없으면 목록은 비어 있습니다.
           </p>
         </div>
       </section>

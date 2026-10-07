@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { ScrollToTop } from './components/ScrollToTop'
+import { AreaDetailPage, AreasPage } from './pages/Areas'
 import { ContactPage } from './pages/Contact'
 import { DemolitionPage } from './pages/Demolition'
 import { HomePage } from './pages/Home'
@@ -17,6 +18,8 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="interior" element={<InteriorPage />} />
           <Route path="demolition" element={<DemolitionPage />} />
+          <Route path="areas" element={<AreasPage />} />
+          <Route path="areas/:slug" element={<AreaDetailPage />} />
           <Route path="partners" element={<PartnersPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
           <Route path="contact" element={<ContactPage />} />

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { areas } from '../data/areas'
 import { SITE, phoneHref } from '../data/site'
 
 const fields = [
@@ -16,6 +17,12 @@ export function Footer() {
           <p className="foot-label">메뉴</p>
           <Link to="/interior">인테리어</Link>
           <Link to="/demolition">철거·정리</Link>
+          <Link to="/areas">시공지역</Link>
+          {areas.map((area) => (
+            <Link key={area.slug} to={`/areas/${area.slug}`}>
+              {area.name} 철거·인테리어
+            </Link>
+          ))}
           <Link to="/partners">협력업체 모집</Link>
           <Link to="/reviews">작업후기</Link>
           <Link to="/contact">문의</Link>

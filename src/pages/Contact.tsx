@@ -4,13 +4,30 @@ import { useSearchParams } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import { Seo } from '../components/Seo'
 import { faqs } from '../data/faq'
+import { CONTACT_DESCRIPTION, CONTACT_TITLE } from '../data/seo'
 import { SITE, phoneHref } from '../data/site'
 
 const EMAILJS_PUBLIC_KEY = 'JKsVOKPtnWHIr2BCV'
 const EMAILJS_SERVICE_ID = 'allbarunclean'
 const EMAILJS_TEMPLATE_ID = 'template_b4ox5js'
 
-const topics = ['욕실', '주방', '도배·장판', '조명', '철거', '폐기물', '상가 원상복구', '부분수리', '기타']
+const topics = [
+  '인테리어철거',
+  '원상복구철거',
+  '상가철거',
+  '식당철거',
+  '욕실주방철거',
+  '화장실',
+  '주방',
+  '싱크대',
+  '타일',
+  '조명',
+  '도배장판',
+  '몰딩',
+  '우물천정',
+  '부분수리',
+  '기타',
+]
 
 type Kind = 'customer' | 'partner'
 
@@ -74,16 +91,14 @@ export function ContactPage() {
 
   return (
     <>
-      <Seo
-        title="문의"
-        description="철거·인테리어 상담과 그 외 지역 협력업체 신청."
-      />
+      <Seo title={CONTACT_TITLE} description={CONTACT_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
           <p className="kicker">문의</p>
           <h1>상담과 협력 신청</h1>
-          <p className="lede">
-            시공 상담과 그 외 지역 협력업체 신청을 받습니다. 전화는{' '}
+          <p className="lede lede-wide">
+            창원, 마산, 진해, 김해, 밀양, 함안 인테리어철거·상가철거·화장실·도배장판·우물천정
+            상담과 그 외 지역 협력업체 신청을 받습니다. 전화는{' '}
             <a href={phoneHref}>{SITE.phoneDisplay}</a> 입니다.
           </p>
         </div>
@@ -110,11 +125,17 @@ export function ContactPage() {
             <div className="form-row">
               <label>
                 지역
-                <input name="area" required maxLength={40} placeholder="활동 지역" />
+                <input
+                  name="area"
+                  required
+                  maxLength={40}
+                  placeholder="창원, 마산, 진해 등"
+                  defaultValue={params.get('area') ?? ''}
+                />
               </label>
               <label>
                 {kind === 'partner' ? '주요 공종' : '관심 분야'}
-                <select name="topic" defaultValue={kind === 'partner' ? '철거' : '욕실'}>
+                <select name="topic" defaultValue={kind === 'partner' ? '인테리어철거' : '화장실'}>
                   {topics.map((topic) => (
                     <option key={topic}>{topic}</option>
                   ))}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { KoreaPartnerMap } from '../components/KoreaPartnerMap'
 import { Seo } from '../components/Seo'
+import { PARTNERS_DESCRIPTION, PARTNERS_TITLE } from '../data/seo'
 
 const terms = [
   {
@@ -24,10 +25,7 @@ const terms = [
 export function PartnersPage() {
   return (
     <>
-      <Seo
-        title="협력업체 모집"
-        description="철거·인테리어 협력업체를 그 외 지역에서 모집합니다."
-      />
+      <Seo title={PARTNERS_TITLE} description={PARTNERS_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap page-hero-grid">
           <div>

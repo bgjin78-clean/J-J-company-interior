@@ -6,6 +6,7 @@ const links = [
   { to: '/', label: '홈' },
   { to: '/interior', label: '인테리어' },
   { to: '/demolition', label: '철거·정리' },
+  { to: '/areas', label: '시공지역' },
   { to: '/partners', label: '협력업체' },
   { to: '/reviews', label: '작업후기' },
   { to: '/contact', label: '문의' },
