@@ -1,7 +1,9 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { KeywordGroups } from '../components/SeoLinks'
+import { StoryList } from '../components/StoryList'
 import { areas } from '../data/areas'
+import { stories } from '../data/stories'
 import { AREAS_DESCRIPTION, AREAS_TITLE, REGION_LINE, areaSearchCopy, areaTitle } from '../data/seo'
 
 export function AreasPage() {
@@ -13,10 +15,9 @@ export function AreasPage() {
           <p className="kicker">시공지역</p>
           <h1>{REGION_LINE}</h1>
           <p className="lede lede-wide">
-            철거·인테리어 상담은 창원, 마산, 진해, 김해, 밀양, 함안 순입니다. 인테리어철거,
+            창원, 마산, 진해, 김해, 밀양, 함안 현장을 글로 남겼습니다. 인테리어철거,
             원상복구철거, 상가철거, 식당철거, 욕실주방철거와 화장실, 주방, 싱크대, 타일, 조명,
-            도배장판, 몰딩, 우물천정을 안내합니다. 제휴 시공은 창원 1곳이며, 다른 도시는
-            파트너를 더 고른 뒤에 추가합니다.
+            도배장판, 몰딩, 우물천정 이야기가 지역 이름과 함께 있습니다.
           </p>
         </div>
       </section>
@@ -24,7 +25,7 @@ export function AreasPage() {
         <div className="wrap area-cards">
           {areas.map((area) => (
             <Link key={area.slug} to={`/areas/${area.slug}`} className="area-card">
-              <span>{area.partner ? '제휴 선정' : '우선 홍보'}</span>
+              <span>{area.places[0]}</span>
               <h2>{area.name} 철거·인테리어</h2>
               <p>{area.headline}</p>
               <em>{area.region}</em>
@@ -50,13 +51,18 @@ export function AreaDetailPage() {
           <h1>{area.name} 철거·인테리어</h1>
           <p className="lede lede-wide">{areaSearchCopy(area.name)}</p>
           <p className="lede">{area.lead}</p>
-          <p className="status-pill">{area.partner ? '제휴 시공업체 선정' : '우선 홍보 · 전담 제휴는 추후'}</p>
         </div>
       </section>
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <h2>{area.name}에서 안내하는 공종</h2>
+            <h2>{area.name} 현장 글</h2>
+          </div>
+          <StoryList stories={stories.filter((story) => story.slug === area.slug)} />
+        </div>
+        <div className="wrap detail-gap">
+          <div className="section-title">
+            <h2>{area.name}에서 하는 일</h2>
           </div>
           <KeywordGroups />
         </div>
@@ -70,7 +76,7 @@ export function AreaDetailPage() {
             </ul>
           </div>
           <div>
-            <h2>우선 안내 권역</h2>
+            <h2>자주 가는 동네</h2>
             <div className="chips">
               {area.places.map((place) => (
                 <span key={place}>{place}</span>

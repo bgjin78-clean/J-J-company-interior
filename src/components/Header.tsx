@@ -7,7 +7,6 @@ const links = [
   { to: '/interior', label: '인테리어' },
   { to: '/demolition', label: '철거·정리' },
   { to: '/areas', label: '시공지역' },
-  { to: '/partners', label: '협력업체' },
   { to: '/reviews', label: '작업후기' },
   { to: '/contact', label: '문의' },
 ]
@@ -17,13 +16,6 @@ export function Header() {
 
   return (
     <header className="head">
-      <div className="recruit-bar">
-        <div className="wrap">
-          <Link to="/partners" onClick={() => setOpen(false)}>
-            협력업체 모집중
-          </Link>
-        </div>
-      </div>
       <div className="wrap head-row">
         <button
           className={open ? 'menu is-open' : 'menu'}

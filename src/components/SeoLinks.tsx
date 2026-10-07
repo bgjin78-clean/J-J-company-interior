@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { areas } from '../data/areas'
 import { demolitionTerms, interiorTerms } from '../data/seo'
 
 export function KeywordGroups() {
@@ -25,21 +24,6 @@ export function KeywordGroups() {
           ))}
         </div>
       </div>
-    </div>
-  )
-}
-
-export function RegionLinks() {
-  return (
-    <div className="area-index">
-      {areas.map((area, index) => (
-        <Link key={area.slug} to={`/areas/${area.slug}`} className="area-row">
-          <b>{String(index + 1).padStart(2, '0')}</b>
-          <strong>{area.name}</strong>
-          <span>{area.partner ? '제휴 선정' : '우선 홍보'}</span>
-          <em>{area.headline}</em>
-        </Link>
-      ))}
     </div>
   )
 }

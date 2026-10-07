@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
-import { KeywordGroups, RegionLinks } from '../components/SeoLinks'
+import { KeywordGroups } from '../components/SeoLinks'
+import { StoryList } from '../components/StoryList'
 import { homeFaqs } from '../data/faq'
 import { HOME_DESCRIPTION, HOME_TITLE } from '../data/site'
+import { stories } from '../data/stories'
 import { demolitionServices, featured, interiorServices, processSteps } from '../data/services'
 
 export function HomePage() {
@@ -20,16 +22,16 @@ export function HomePage() {
               한 흐름으로 안내합니다
             </h1>
             <p className="lede">
-              상담은 창원, 마산, 진해, 김해, 밀양, 함안 순입니다. 인테리어철거와
-              상가철거처럼 비울 곳은 철거로, 화장실·주방·도배장판·우물천정은
-              인테리어로 이어갑니다. 현장 시공은 제휴 업체가 맡습니다.
+              창원, 마산, 진해, 김해, 밀양, 함안에서 철거와 인테리어를 합니다.
+              비울 곳은 인테리어철거와 상가철거로, 화장실·주방·도배장판·우물천정은
+              마감으로 이어갑니다.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-solid" to="/contact">
                 시공 상담 남기기
               </Link>
-              <Link className="btn btn-line" to="/partners">
-                협력업체 모집 보기
+              <Link className="btn btn-line" to="/reviews">
+                현장 글 보기
               </Link>
             </div>
           </div>
@@ -43,36 +45,6 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="recruit" id="recruit">
-        <div className="wrap recruit-grid">
-          <div>
-            <p className="kicker kicker-light">협력업체 모집</p>
-            <h2>그 외 지역 협력업체를 모집합니다</h2>
-            <p>
-              철거와 인테리어를 직접 시공하는 업체를 모집합니다. 이미 제휴가 있는
-              지역이 아닌 곳에서 활동하는 업체의 신청을 받습니다.
-            </p>
-          </div>
-          <ul className="recruit-points">
-            <li>
-              <b>01</b>
-              <span>철거, 폐기물 처리, 인테리어 마감을 직접 시공하는 업체</span>
-            </li>
-            <li>
-              <b>02</b>
-              <span>그 외 지역에서 출동이 가능한 업체</span>
-            </li>
-            <li>
-              <b>03</b>
-              <span>철거, 마감, 폐기물 처리를 항목으로 나눠 견적할 수 있는 업체</span>
-            </li>
-          </ul>
-          <Link className="btn btn-signal" to="/partners">
-            협력 신청 안내
-          </Link>
-        </div>
-      </section>
-
       <section className="band">
         <div className="wrap">
           <div className="section-title">
@@ -83,7 +55,7 @@ export function HomePage() {
             <article>
               <img src="/images/studio.jpg" alt="상담을 정리하는 업무 공간" />
               <h3>상담 연결</h3>
-              <p>공사 범위를 듣고, 시공 가능한 제휴 업체로 상담을 넘깁니다.</p>
+              <p>공사 범위와 주소를 듣고, 방문일과 견적으로 이어갑니다.</p>
             </article>
             <article>
               <img src="/images/demo.jpg" alt="철거 현장 작업" />
@@ -93,7 +65,7 @@ export function HomePage() {
             <article>
               <img src="/images/house.jpg" alt="마감이 끝난 주택 외관" />
               <h3>인테리어</h3>
-              <p>화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정을 제휴 시공으로 연결합니다.</p>
+              <p>화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정까지 마감합니다.</p>
             </article>
           </div>
         </div>
@@ -102,13 +74,11 @@ export function HomePage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">지역</p>
-            <h2>창원, 마산, 진해, 김해, 밀양, 함안</h2>
-            <p className="sub">
-              이 순서대로 철거·인테리어 상담을 엽니다. 창원에 제휴 시공업체가 있습니다.
-            </p>
+            <p className="kicker">현장 글</p>
+            <h2>지역에서 남긴 시공 이야기</h2>
+            <p className="sub">창원, 마산, 진해, 김해, 밀양, 함안 현장을 글로 정리했습니다.</p>
           </div>
-          <RegionLinks />
+          <StoryList stories={stories} linked />
         </div>
       </section>
 
@@ -192,7 +162,7 @@ export function HomePage() {
         <div className="wrap faq-preview">
           <div>
             <p className="kicker">질문</p>
-            <h2>플랫폼에 대해 먼저 묻는 것</h2>
+            <h2>상담 전에 자주 묻는 일</h2>
             <Link className="text-link" to="/contact">
               문의·전체 FAQ
             </Link>

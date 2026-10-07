@@ -1,7 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Seo } from '../components/Seo'
+import { StoryList } from '../components/StoryList'
 import { REVIEWS_DESCRIPTION, REVIEWS_TITLE } from '../data/seo'
+import { stories } from '../data/stories'
 import {
   loadReviews,
   reviewCategories,
@@ -12,13 +14,7 @@ import {
 
 export function ReviewsPage() {
   const [reviews, setReviews] = useState<Review[]>(() => loadReviews())
-  const [filter, setFilter] = useState<(typeof reviewCategories)[number]>('전체')
   const [open, setOpen] = useState(false)
-
-  const filtered = useMemo(() => {
-    if (filter === '전체') return reviews
-    return reviews.filter((review) => review.category === filter)
-  }, [filter, reviews])
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -40,36 +36,19 @@ export function ReviewsPage() {
       <section className="page-hero">
         <div className="wrap">
           <p className="kicker">작업후기</p>
-          <h1>시공 기록을 쌓는 자리</h1>
+          <h1>지역에 남긴 시공 글</h1>
           <p className="lede lede-wide">
-            창원, 마산, 진해, 김해, 밀양, 함안의 인테리어철거, 상가철거, 화장실, 주방,
-            도배장판 시공이 끝나고 고객이 동의한 이야기만 남깁니다. 아직 공개할 후기가
-            없으면 목록은 비어 있습니다.
+            창원, 마산, 진해, 김해, 밀양, 함안 현장 글을 모아 두었습니다. 인테리어철거,
+            상가철거, 화장실, 주방, 도배장판처럼 그 지역에서 한 일이 글 안에 있습니다.
           </p>
         </div>
       </section>
       <section className="band">
         <div className="wrap">
-          <div className="filter-row">
-            {reviewCategories.map((category) => (
-              <button
-                key={category}
-                type="button"
-                className={filter === category ? 'chip is-on' : 'chip'}
-                onClick={() => setFilter(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-          {filtered.length === 0 ? (
-            <div className="empty">
-              <h2>아직 공개된 후기가 없습니다</h2>
-              <p>사진 사용에 동의한 시공 기록만 차례로 올립니다.</p>
-            </div>
-          ) : (
+          <StoryList stories={stories} />
+          {reviews.length > 0 ? (
             <div className="review-list">
-              {filtered.map((review) => (
+              {reviews.map((review) => (
                 <article key={review.id}>
                   <p>
                     {review.area} · {review.category} · {review.date}
@@ -79,7 +58,7 @@ export function ReviewsPage() {
                 </article>
               ))}
             </div>
-          )}
+          ) : null}
           <button type="button" className="text-link text-btn" onClick={() => setOpen((v) => !v)}>
             {open ? '등록 닫기' : '현장 기록 남기기'}
           </button>

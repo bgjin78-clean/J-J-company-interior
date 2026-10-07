@@ -17,10 +17,10 @@ type Hot = string | null
 function tipFor(city: Hot) {
   if (!city) return '지도나 표의 시·군에 커서를 올리면 그 지역이 표시됩니다.'
   if (city === PARTNER_CITY) {
-    return '경상남도 창원시 · 제휴 시공업체가 있습니다. 마산·진해도 이 시에 포함됩니다.'
+    return '경상남도 창원시에서 철거·인테리어를 합니다. 마산·진해도 이 시에 포함됩니다.'
   }
   const region = regions.find((item) => item.city === city)
-  return region ? `${region.province} ${city} · 협력업체 없음` : city
+  return region ? `${region.province} ${city}` : city
 }
 
 function RegionShape({
@@ -106,7 +106,7 @@ export function KoreaPartnerMap() {
       <div className="korea-maps">
         <MapFrame
           title="대한민국 시·도"
-          label="대한민국 시·도 지도. 창원시에 협력업체가 있습니다."
+          label="대한민국 시·도 지도. 창원시가 표시되어 있습니다."
           view={mapView}
           areas={regions}
           outlines={provinceOutlines}
@@ -127,10 +127,10 @@ export function KoreaPartnerMap() {
       <p className="korea-tip">{tipFor(hot)}</p>
       <div className="korea-legend">
         <span>
-          <i className="swatch is-on" /> 협력업체 있음
+          <i className="swatch is-on" /> 창원
         </span>
         <span>
-          <i className="swatch" /> 협력업체 없음
+          <i className="swatch" /> 그 밖 시·군
         </span>
       </div>
       <div className="region-table-wrap">
@@ -149,7 +149,7 @@ export function KoreaPartnerMap() {
                   <th scope="row">{group.name}</th>
                   <td>
                     {group.metro ? (
-                      <span className="city-note">시 전체 · 협력업체 없음</span>
+                      <span className="city-note">시 전체</span>
                     ) : (
                       group.cities.map((city) => {
                         const partner = city === PARTNER_CITY
@@ -163,7 +163,7 @@ export function KoreaPartnerMap() {
                             onFocus={() => setHot(city)}
                             onBlur={() => setHot(null)}
                           >
-                            {partner ? '창원시 · 협력' : city}
+                            {city}
                           </button>
                         )
                       })

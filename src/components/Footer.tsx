@@ -23,7 +23,7 @@ export function Footer() {
               {area.name} 철거·인테리어
             </Link>
           ))}
-          <Link to="/partners">협력업체 모집</Link>
+          <Link to="/partners">시공 협력</Link>
           <Link to="/reviews">작업후기</Link>
           <Link to="/contact">문의</Link>
         </div>

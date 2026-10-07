@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
-import { RegionLinks } from '../components/SeoLinks'
+import { StoryList } from '../components/StoryList'
 import { INTERIOR_DESCRIPTION, INTERIOR_TITLE, REGION_LINE } from '../data/seo'
 import { interiorServices } from '../data/services'
+import { stories } from '../data/stories'
 
 export function InteriorPage() {
   return (
@@ -14,9 +15,9 @@ export function InteriorPage() {
             <p className="kicker">인테리어</p>
             <h1>화장실, 주방, 도배장판, 우물천정</h1>
             <p className="lede lede-wide">
-              화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정 시공을 {REGION_LINE}{' '}
-              순으로 안내합니다. 철거가 필요하면 인테리어철거나 욕실주방철거를 앞에 두고,
-              마감은 제휴 업체가 이어서 합니다.
+              화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정을 {REGION_LINE}에서
+              시공합니다. 철거가 필요하면 인테리어철거나 욕실주방철거를 앞에 두고, 마감으로
+              이어갑니다.
             </p>
           </div>
           <img src="/images/remodel.jpg" alt="도배장판과 조명이 끝난 거실" />
@@ -44,11 +45,10 @@ export function InteriorPage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">지역</p>
-            <h2>{REGION_LINE}</h2>
-            <p className="sub">화장실, 싱크대, 도배장판, 우물천정 상담도 이 순서대로 받습니다.</p>
+            <p className="kicker">현장 글</p>
+            <h2>마감이 남은 지역 이야기</h2>
           </div>
-          <RegionLinks />
+          <StoryList stories={stories.filter((story) => story.category !== '상가철거' && story.category !== '원상복구철거')} />
         </div>
       </section>
       <section className="band">

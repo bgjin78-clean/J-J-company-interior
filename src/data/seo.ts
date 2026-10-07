@@ -26,20 +26,19 @@ export const interiorTerms = [
 export const REGION_LINE = '창원, 마산, 진해, 김해, 밀양, 함안'
 
 export const DEMOLITION_TITLE = '인테리어철거·원상복구철거·상가철거·식당철거·욕실주방철거'
-export const DEMOLITION_DESCRIPTION = `${REGION_LINE} 인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거 상담. 시공은 제휴 업체가 맡습니다.`
+export const DEMOLITION_DESCRIPTION = `${REGION_LINE} 인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거.`
 
 export const INTERIOR_TITLE = '화장실·주방·싱크대·타일·조명·도배장판·몰딩·우물천정'
 export const INTERIOR_DESCRIPTION = `${REGION_LINE} 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정 인테리어 상담.`
 
 export const AREAS_TITLE = '창원·마산·진해·김해·밀양·함안 철거·인테리어'
-export const AREAS_DESCRIPTION = `철거·인테리어 우선 지역은 ${REGION_LINE}입니다. 인테리어철거, 상가철거, 화장실, 도배장판, 우물천정을 안내하고 창원에 제휴 시공업체가 있습니다.`
+export const AREAS_DESCRIPTION = `${REGION_LINE} 철거·인테리어 현장 글. 인테리어철거, 상가철거, 화장실, 도배장판, 우물천정이 지역 이야기 안에 있습니다.`
 
 export const CONTACT_TITLE = '철거·인테리어 상담 | 창원·마산·진해·김해·밀양·함안'
-export const CONTACT_DESCRIPTION = `${REGION_LINE} 인테리어철거, 상가철거, 식당철거, 화장실, 주방, 도배장판, 우물천정 상담과 그 외 지역 협력업체 신청.`
+export const CONTACT_DESCRIPTION = `${REGION_LINE} 인테리어철거, 상가철거, 식당철거, 화장실, 주방, 도배장판, 우물천정 상담.`
 
-export const PARTNERS_TITLE = '협력업체 모집 | 철거·인테리어'
-export const PARTNERS_DESCRIPTION =
-  '창원 제휴 외 지역에서 철거·인테리어를 직접 시공하는 협력업체를 모집합니다.'
+export const PARTNERS_TITLE = '시공 협력 | 철거·인테리어'
+export const PARTNERS_DESCRIPTION = '철거·인테리어를 직접 하는 업체의 소개를 받습니다.'
 
 export const REVIEWS_TITLE = '작업후기 | 창원 철거·인테리어'
 export const REVIEWS_DESCRIPTION = `${REGION_LINE} 인테리어철거, 상가철거, 화장실, 주방, 도배장판 작업후기.`
@@ -101,21 +100,21 @@ export function seoEntries(): SeoEntry[] {
       path: '/contact',
       title: CONTACT_TITLE,
       description: CONTACT_DESCRIPTION,
-      h1: '상담과 협력 신청',
+      h1: '시공 상담',
       placename: '창원시',
     },
     {
       path: '/partners',
       title: PARTNERS_TITLE,
       description: PARTNERS_DESCRIPTION,
-      h1: '그 외 지역 시공 파트너',
+      h1: '함께 현장을 보는 업체',
       placename: '창원시',
     },
     {
       path: '/reviews',
       title: REVIEWS_TITLE,
       description: REVIEWS_DESCRIPTION,
-      h1: '시공 기록을 쌓는 자리',
+      h1: '지역에 남긴 시공 글',
       placename: '창원시',
     },
   ]
@@ -202,7 +201,7 @@ function breadcrumb(path: string) {
     const area = areas.find((item) => path === `/areas/${item.slug}`)
     items.push({ name: area ? `${area.name} 철거·인테리어` : '지역', path })
   } else if (path === '/contact') items.push({ name: '문의', path })
-  else if (path === '/partners') items.push({ name: '협력업체', path })
+  else if (path === '/partners') items.push({ name: '시공 협력', path })
   else if (path === '/reviews') items.push({ name: '작업후기', path })
 
   return {

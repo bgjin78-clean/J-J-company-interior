@@ -39,7 +39,7 @@ export function ContactPage() {
   const [sending, setSending] = useState(false)
 
   const headline = useMemo(
-    () => (kind === 'partner' ? '협력업체 신청' : '시공 상담'),
+    () => (kind === 'partner' ? '업체 문의' : '시공 상담'),
     [kind],
   )
 
@@ -95,11 +95,10 @@ export function ContactPage() {
       <section className="page-hero">
         <div className="wrap">
           <p className="kicker">문의</p>
-          <h1>상담과 협력 신청</h1>
+          <h1>시공 상담</h1>
           <p className="lede lede-wide">
             창원, 마산, 진해, 김해, 밀양, 함안 인테리어철거·상가철거·화장실·도배장판·우물천정
-            상담과 그 외 지역 협력업체 신청을 받습니다. 전화는{' '}
-            <a href={phoneHref}>{SITE.phoneDisplay}</a> 입니다.
+            상담을 받습니다. 전화는 <a href={phoneHref}>{SITE.phoneDisplay}</a> 입니다.
           </p>
         </div>
       </section>
@@ -111,7 +110,7 @@ export function ContactPage() {
                 시공 상담
               </button>
               <button type="button" className={kind === 'partner' ? 'is-on' : ''} onClick={() => setKind('partner')}>
-                협력업체 신청
+                업체 문의
               </button>
             </div>
             <label>

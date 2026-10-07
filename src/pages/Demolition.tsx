@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
-import { RegionLinks } from '../components/SeoLinks'
+import { StoryList } from '../components/StoryList'
 import { DEMOLITION_DESCRIPTION, DEMOLITION_TITLE, REGION_LINE } from '../data/seo'
 import { demolitionServices } from '../data/services'
+import { stories } from '../data/stories'
 
 export function DemolitionPage() {
   return (
@@ -14,9 +15,9 @@ export function DemolitionPage() {
             <p className="kicker">철거·정리</p>
             <h1>인테리어철거, 상가철거, 식당철거</h1>
             <p className="lede lede-wide">
-              인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거를 {REGION_LINE}{' '}
-              순으로 상담합니다. 철거는 인테리어가 들어갈 자리를 비우는 공정으로 안내하고,
-              범위와 반출은 제휴 업체가 견적에 나눠 적습니다.
+              인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거를 {REGION_LINE}에서
+              합니다. 철거는 인테리어가 들어갈 자리를 비우는 공정이고, 범위와 반출은 견적에
+              나눠 적습니다.
             </p>
           </div>
           <img src="/images/partial.jpg" alt="인테리어철거로 구조가 드러난 현장" />
@@ -44,11 +45,10 @@ export function DemolitionPage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">지역</p>
-            <h2>{REGION_LINE}</h2>
-            <p className="sub">상가철거와 식당철거, 원상복구철거 일정은 이 순서대로 확인합니다.</p>
+            <p className="kicker">현장 글</p>
+            <h2>철거가 남은 지역 이야기</h2>
           </div>
-          <RegionLinks />
+          <StoryList stories={stories.filter((story) => story.category !== '화장실' && story.category !== '우물천정')} />
         </div>
       </section>
       <section className="band">
