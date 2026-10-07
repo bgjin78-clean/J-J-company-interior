@@ -336,6 +336,41 @@ h2 { font-size: clamp(1.55rem, 2.4vw, 2rem); }
 
 .trio p { margin-top: 0; margin-bottom: 1.1rem; color: var(--muted); font-size: 1.08rem; }
 
+.field-groups {
+  display: grid;
+  gap: 2.4rem;
+}
+
+.field-groups h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.35rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+}
+
+.field-card {
+  background: #f7fbfb;
+  border: 1px solid var(--line);
+}
+
+.field-card img {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.field-card strong {
+  display: block;
+  padding: 0.55rem 0.7rem 0.7rem;
+  font-size: 1.02rem;
+}
+
+.field-card:hover { outline: 2px solid var(--signal); }
+
 .poster-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -631,6 +666,21 @@ h2 { font-size: clamp(1.55rem, 2.4vw, 2rem); }
 
 .review-list h2 { font-size: 1.5rem; margin: 0.3rem 0; }
 
+.review-list.is-compact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+
+.review-list.is-compact article {
+  margin-bottom: 0;
+  padding: 0.75rem 0.85rem;
+}
+
+.review-list.is-compact h2 { font-size: 1.05rem; }
+
+.review-list.is-compact p { font-size: 0.95rem; line-height: 1.5; }
+
 .text-btn { background: none; border: 0; padding: 0; }
 
 .form { display: grid; gap: 0.8rem; margin-top: 1rem; }
@@ -866,6 +916,7 @@ button.city-chip { font: inherit; font-size: 1.02rem; }
   }
   .service-row.flip img { order: 0; }
   .trio, .steps, .term-grid, .area-cards, .recruit-points { grid-template-columns: 1fr 1fr; }
+  .field-grid, .review-list.is-compact { grid-template-columns: 1fr 1fr; }
   .poster-row { grid-template-columns: repeat(3, 1fr); }
   .foot-grid { grid-template-columns: 1fr; }
   .area-row, .area-row-static { grid-template-columns: 1fr; gap: 0.15rem; }
@@ -900,7 +951,8 @@ button.city-chip { font: inherit; font-size: 1.02rem; }
   body { font-size: 17.5px; }
   .region-table tbody th { white-space: normal; width: 6.4rem; }
   h1 { font-size: 2.05rem; }
-  .trio, .steps, .term-grid, .area-cards, .recruit-points, .poster-row { grid-template-columns: 1fr 1fr; }
+  .trio, .steps, .term-grid, .area-cards, .recruit-points, .poster-row, .field-grid { grid-template-columns: 1fr 1fr; }
+  .review-list.is-compact { grid-template-columns: 1fr; }
   .recruit-bar span { display: none; }
   .hero-photo img, .partner-spotlight img, .page-hero-grid img, .service-row img { height: 220px; }
   .hero-photo figcaption { left: 0.4rem; }

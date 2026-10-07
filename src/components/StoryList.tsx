@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom'
 import type { Story } from '../data/stories'
 
-export function StoryList({ stories, linked = false }: { stories: Story[]; linked?: boolean }) {
+export function StoryList({
+  stories,
+  linked = false,
+  compact = false,
+}: {
+  stories: Story[]
+  linked?: boolean
+  compact?: boolean
+}) {
   return (
-    <div className="review-list">
+    <div className={compact ? 'review-list is-compact' : 'review-list'}>
       {stories.map((story) => (
         <article key={story.id}>
           <p>

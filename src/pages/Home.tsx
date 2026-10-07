@@ -5,7 +5,7 @@ import { StoryList } from '../components/StoryList'
 import { homeFaqs } from '../data/faq'
 import { HOME_DESCRIPTION, HOME_TITLE } from '../data/site'
 import { stories } from '../data/stories'
-import { demolitionServices, featured, interiorServices, processSteps } from '../data/services'
+import { demolitionServices, interiorServices, processSteps } from '../data/services'
 
 export function HomePage() {
   return (
@@ -50,25 +50,31 @@ export function HomePage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">하는 일</p>
-            <h2>철거 다음이 인테리어입니다</h2>
+            <h2>주요업무분야</h2>
           </div>
-          <div className="trio">
-            <article>
-              <img src="/images/studio.jpg" alt="상담을 정리하는 업무 공간" />
-              <h3>상담 연결</h3>
-              <p>공사 범위와 주소를 듣고, 방문일과 견적으로 이어갑니다.</p>
-            </article>
-            <article>
-              <img src="/images/demo.jpg" alt="철거 현장 작업" />
-              <h3>철거·정리</h3>
-              <p>인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거를 인테리어 전에 안내합니다.</p>
-            </article>
-            <article>
-              <img src="/images/house.jpg" alt="마감이 끝난 주택 외관" />
+          <div className="field-groups">
+            <div>
+              <h3>철거</h3>
+              <div className="field-grid">
+                {demolitionServices.map((item) => (
+                  <Link key={item.id} to={`/demolition#${item.id}`} className="field-card">
+                    <img src={item.image} alt={item.imageAlt} />
+                    <strong>{item.title}</strong>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div>
               <h3>인테리어</h3>
-              <p>화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정까지 마감합니다.</p>
-            </article>
+              <div className="field-grid">
+                {interiorServices.map((item) => (
+                  <Link key={item.id} to={`/interior#${item.id}`} className="field-card">
+                    <img src={item.image} alt={item.imageAlt} />
+                    <strong>{item.title}</strong>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -76,11 +82,9 @@ export function HomePage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">현장 글</p>
-            <h2>지역에서 남긴 시공 이야기</h2>
-            <p className="sub">창원, 마산, 진해, 김해, 밀양, 함안 현장을 글로 정리했습니다.</p>
+            <h2>시공후기</h2>
           </div>
-          <StoryList stories={stories} linked />
+          <StoryList stories={stories} linked compact />
         </div>
       </section>
 
@@ -95,23 +99,6 @@ export function HomePage() {
             </p>
           </div>
           <KeywordGroups />
-        </div>
-      </section>
-
-      <section className="band band-tight">
-        <div className="wrap">
-          <div className="section-title">
-            <p className="kicker">현장</p>
-            <h2>먼저 보이는 작업</h2>
-          </div>
-          <div className="poster-row">
-            {featured.map((item) => (
-              <Link key={item.id} to={item.path} className="poster">
-                <img src={item.image} alt={item.name} />
-                <span>{item.name}</span>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
