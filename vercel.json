@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/demolition", "destination": "/cheolgeo", "permanent": true },
+    { "source": "/interior", "destination": "/interior-magam", "permanent": true },
+    { "source": "/areas", "destination": "/gwonyeok", "permanent": true },
+    { "source": "/areas/:slug", "destination": "/gwonyeok/:slug", "permanent": true },
+    { "source": "/reviews", "destination": "/hyeonjang", "permanent": true },
+    { "source": "/contact", "destination": "/sangdam", "permanent": true }
+  ]
+}
