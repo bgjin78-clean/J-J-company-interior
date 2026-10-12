@@ -1,24 +1,24 @@
 import { Link } from 'react-router-dom'
 import { KoreaPartnerMap } from '../components/KoreaPartnerMap'
 import { Seo } from '../components/Seo'
-import { PARTNERS_DESCRIPTION, PARTNERS_TITLE } from '../data/seo'
+import { PARTNERS_DESCRIPTION, PARTNERS_TITLE, PATHS } from '../data/seo'
 
 const terms = [
   {
-    title: '시공 주체',
-    text: '철거·인테리어·폐기물 처리를 직접 수행하는 업체만 받습니다.',
+    title: '직접 하는 일',
+    text: '철거 또는 인테리어를 현장에서 하는 팀만 받습니다. 연결만 하는 경우는 적지 않습니다.',
   },
   {
-    title: '활동 지역',
-    text: '출동할 수 있는 시·군과 주요 공종을 적어 주시면 됩니다.',
+    title: '가는 곳',
+    text: '창원, 마산, 진해, 김해, 밀양, 함안 중 실제로 출동하는 곳과, 면 단위까지 가는지를 적어 주세요.',
   },
   {
-    title: '견적 방식',
-    text: '철거, 마감, 폐기물 처리, 양중비를 항목으로 나눠 설명할 수 있어야 합니다.',
+    title: '금액 줄',
+    text: '철거, 인테리어 자재, 잔재 차, 양중을 한 문장에 섞지 않고 나눌 수 있으면 됩니다.',
   },
   {
-    title: '소개 자료',
-    text: '상호, 연락처, 최근 현장 사진 사용 동의가 있어야 이름을 올립니다.',
+    title: '이름을 올리는 조건',
+    text: '상호, 연락처, 현장 사진을 페이지에 써도 되는지에 대한 답이 있어야 합니다.',
   },
 ]
 
@@ -30,13 +30,13 @@ export function PartnersPage() {
         <div className="wrap page-hero-grid">
           <div>
             <p className="kicker">시공 협력</p>
-            <h1>함께 현장을 보는 업체</h1>
+            <h1>철거·인테리어를 직접 하는 팀</h1>
             <p className="lede">
-              철거와 인테리어를 직접 하는 업체의 소개를 받습니다. 활동 지역과 최근
-              현장을 남겨 주시면 연락드립니다.
+              창원권에서 해체와 마감을 직접 하는 팀의 소개를 받습니다. 가는 지역과
+              최근 철거·인테리어 현장을 남겨 주시면 연락드립니다.
             </p>
-            <Link className="btn btn-solid" to="/contact?type=partner">
-              소개 남기기
+            <Link className="btn btn-solid" to={`${PATHS.consult}?type=partner`}>
+              팀 소개 남기기
             </Link>
           </div>
           <img src="/images/studio.jpg" alt="시공 범위를 정리하는 업무 공간" />
@@ -61,8 +61,8 @@ export function PartnersPage() {
         <div className="wrap">
           <div className="section-title">
             <p className="kicker">안내</p>
-            <h2>소개에 있으면 좋은 내용</h2>
-            <p className="sub">활동 지역과 주로 하는 철거·인테리어를 적어 주세요.</p>
+            <h2>소개에 적혀 있으면 읽는 내용</h2>
+            <p className="sub">직접 하는 철거·인테리어와 출동 지역이 먼저입니다.</p>
           </div>
           <div className="term-grid">
             {terms.map((term, index) => (

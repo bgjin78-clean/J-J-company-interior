@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { PATHS } from '../data/seo'
 import type { Story } from '../data/stories'
 
 export function StoryList({
@@ -20,8 +21,8 @@ export function StoryList({
           <h2>{story.title}</h2>
           <p>{story.body}</p>
           {linked ? (
-            <Link className="text-link" to={`/areas/${story.slug}`}>
-              {story.area} 글 더 보기
+            <Link className="text-link" to={`${PATHS.region}/${story.slug}`}>
+              {story.area} 철거·인테리어
             </Link>
           ) : null}
         </article>

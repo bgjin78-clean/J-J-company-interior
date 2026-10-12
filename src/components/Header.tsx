@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { PATHS } from '../data/seo'
 import { SITE, phoneHref } from '../data/site'
 
 const links = [
   { to: '/', label: '홈' },
-  { to: '/interior', label: '인테리어' },
-  { to: '/demolition', label: '철거·정리' },
-  { to: '/areas', label: '시공지역' },
-  { to: '/reviews', label: '작업후기' },
-  { to: '/contact', label: '문의' },
+  { to: PATHS.cheolgeo, label: '철거' },
+  { to: PATHS.interior, label: '인테리어' },
+  { to: PATHS.region, label: '창원권' },
+  { to: PATHS.notes, label: '현장 메모' },
+  { to: PATHS.consult, label: '상담' },
 ]
 
 export function Header() {
@@ -27,7 +28,7 @@ export function Header() {
         </button>
         <Link to="/" className="logo" onClick={() => setOpen(false)}>
           <img src="/logo.svg?v=2" alt="" width={42} height={42} />
-          <span>철거, 인테리어</span>
+          <span>철거·인테리어</span>
         </Link>
         <nav className={open ? 'nav is-open' : 'nav'}>
           {links.map((link) => (

@@ -35,11 +35,11 @@ export function ReviewsPage() {
       <Seo title={REVIEWS_TITLE} description={REVIEWS_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
-          <p className="kicker">작업후기</p>
-          <h1>지역에 남긴 시공 글</h1>
+          <p className="kicker">현장 메모</p>
+          <h1>현장에서 금액을 나눈 기록</h1>
           <p className="lede lede-wide">
-            창원, 마산, 진해, 김해, 밀양, 함안 현장 글을 모아 두었습니다. 인테리어철거,
-            상가철거, 화장실, 주방, 도배장판처럼 그 지역에서 한 일이 글 안에 있습니다.
+            창원, 마산, 진해, 김해, 밀양, 함안에서 인테리어철거, 상가철거, 화장실, 주방,
+            도배장판을 왜 다른 줄로 적었는지 남긴 글입니다.
           </p>
         </div>
       </section>
@@ -65,7 +65,7 @@ export function ReviewsPage() {
           {open ? (
             <form className="form" onSubmit={onSubmit}>
               <p className="form-note">
-                이 기록은 지금 사용 중인 브라우저에만 저장됩니다. 서버로 전송되지 않습니다.
+                이 글은 서버로 보내지 않습니다. 이 브라우저를 닫아도 이 기기에만 남아 있습니다.
               </p>
               <label>
                 제목
@@ -78,7 +78,7 @@ export function ReviewsPage() {
                 </label>
                 <label>
                   공종
-                  <select name="category" required defaultValue="욕실">
+                  <select name="category" required defaultValue="화장실">
                     {reviewCategories
                       .filter((category) => category !== '전체')
                       .map((category) => (

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { areas } from '../data/areas'
+import { PATHS } from '../data/seo'
 import { SITE, phoneHref } from '../data/site'
 
 const fields = [
@@ -15,17 +16,17 @@ export function Footer() {
       <div className="wrap foot-grid">
         <div>
           <p className="foot-label">메뉴</p>
-          <Link to="/interior">인테리어</Link>
-          <Link to="/demolition">철거·정리</Link>
-          <Link to="/areas">시공지역</Link>
+          <Link to={PATHS.cheolgeo}>철거</Link>
+          <Link to={PATHS.interior}>인테리어</Link>
+          <Link to={PATHS.region}>창원권</Link>
           {areas.map((area) => (
-            <Link key={area.slug} to={`/areas/${area.slug}`}>
+            <Link key={area.slug} to={`${PATHS.region}/${area.slug}`}>
               {area.name} 철거·인테리어
             </Link>
           ))}
-          <Link to="/partners">시공 협력</Link>
-          <Link to="/reviews">작업후기</Link>
-          <Link to="/contact">문의</Link>
+          <Link to={PATHS.partners}>시공 협력</Link>
+          <Link to={PATHS.notes}>현장 메모</Link>
+          <Link to={PATHS.consult}>상담</Link>
         </div>
         <div>
           <p className="foot-label">사업자 정보</p>
@@ -46,7 +47,7 @@ export function Footer() {
         </div>
       </div>
       <div className="wrap foot-bottom">
-        <span>철거, 인테리어</span>
+        <span>창원권 철거·인테리어</span>
       </div>
     </footer>
   )

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { StoryList } from '../components/StoryList'
-import { INTERIOR_DESCRIPTION, INTERIOR_TITLE, REGION_LINE } from '../data/seo'
+import { INTERIOR_DESCRIPTION, INTERIOR_TITLE, PATHS, REGION_LINE } from '../data/seo'
 import { interiorServices } from '../data/services'
 import { stories } from '../data/stories'
 
@@ -10,26 +10,22 @@ export function InteriorPage() {
     <>
       <Seo title={INTERIOR_TITLE} description={INTERIOR_DESCRIPTION} />
       <section className="page-hero">
-        <div className="wrap page-hero-grid">
-          <div>
-            <p className="kicker">인테리어</p>
-            <h1>화장실, 주방, 도배장판, 우물천정</h1>
-            <p className="lede lede-wide">
-              화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정을 {REGION_LINE}에서
-              시공합니다. 철거가 필요하면 인테리어철거나 욕실주방철거를 앞에 두고, 마감으로
-              이어갑니다.
-            </p>
-          </div>
-          <img src="/images/remodel.jpg" alt="도배장판과 조명이 끝난 거실" />
+        <div className="wrap">
+          <p className="kicker">인테리어</p>
+          <h1>인테리어는 하는 항목만 닫습니다</h1>
+          <p className="lede lede-wide">
+            {REGION_LINE}에서 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정을
+            필요한 줄만 견적에 넣습니다. 가벽이나 철거할 설비가 있을 때만 인테리어철거,
+            욕실주방철거를 앞에 둡니다.
+          </p>
         </div>
       </section>
       <section className="band">
-        <div className="wrap service-list">
-          {interiorServices.map((item, index) => (
-            <article key={item.id} id={item.id} className={index % 2 ? 'service-row flip' : 'service-row'}>
+        <div className="wrap spec-list">
+          {interiorServices.map((item) => (
+            <article key={item.id} id={item.id} className="spec">
               <img src={item.image} alt={item.imageAlt} />
               <div>
-                <span>{String(index + 1).padStart(2, '0')}</span>
                 <h2>{item.title}</h2>
                 <p>{item.summary}</p>
                 <ul>
@@ -45,23 +41,24 @@ export function InteriorPage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <p className="kicker">현장 글</p>
-            <h2>마감이 남은 지역 이야기</h2>
+            <h2>마감 순서가 남은 기록</h2>
           </div>
-          <StoryList stories={stories.filter((story) => story.category !== '상가철거' && story.category !== '원상복구철거')} />
+          <StoryList
+            stories={stories.filter((story) => story.category !== '상가철거' && story.category !== '원상복구철거')}
+          />
         </div>
       </section>
       <section className="band">
         <div className="wrap note">
-          <h2>상담 전에 있으면 좋은 자료</h2>
+          <h2>인테리어 상담에 있으면 일정 계산이 됩니다</h2>
           <ul>
-            <li>화장실·주방·우물천정의 참고 사진</li>
-            <li>누수 이력, 도배장판 면의 곰팡이 여부</li>
-            <li>싱크대와 타일, 조명을 직접 살지 시공에 포함할지</li>
-            <li>이사나 입주 날짜</li>
+            <li>화장실, 주방, 우물천정 중 이번에 손볼 곳의 사진</li>
+            <li>누수가 아래층까지 갔는지, 도배할 면에 곰팡이가 있는지</li>
+            <li>싱크대, 타일, 조명을 가져온 것인지 시공에 넣을 것인지</li>
+            <li>이사 날짜. 방수와 우물천정은 그 날짜에서 거꾸로 셉니다</li>
           </ul>
-          <Link className="btn btn-solid" to="/contact">
-            인테리어 상담
+          <Link className="btn btn-solid" to={PATHS.consult}>
+            인테리어 항목 남기기
           </Link>
         </div>
       </section>

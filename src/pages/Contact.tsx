@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Navigate, useSearchParams } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import { Seo } from '../components/Seo'
 import { faqs } from '../data/faq'
@@ -31,6 +31,12 @@ const topics = [
 
 type Kind = 'customer' | 'partner'
 
+export function LegacyContactRedirect() {
+  const [params] = useSearchParams()
+  const search = params.toString()
+  return <Navigate to={search ? `/sangdam?${search}` : '/sangdam'} replace />
+}
+
 export function ContactPage() {
   const [params] = useSearchParams()
   const initialKind: Kind = params.get('type') === 'partner' ? 'partner' : 'customer'
@@ -53,7 +59,7 @@ export function ContactPage() {
     const topic = String(data.get('topic') ?? '').trim()
     const message = String(data.get('message') ?? '').trim()
     const body = [
-      `[철거, 인테리어] ${headline}`,
+      `[창원권 철거·인테리어] ${headline}`,
       `이름: ${name}`,
       `연락처: ${phone}`,
       `지역: ${area}`,
@@ -81,9 +87,9 @@ export function ContactPage() {
         { publicKey: EMAILJS_PUBLIC_KEY },
       )
       form.reset()
-      setSent('상담이 접수되었습니다. 확인 후 연락드리겠습니다.')
+      setSent('범위를 받아 두었습니다. 확인되면 전화드리겠습니다.')
     } catch {
-      setSent(`전송에 실패했습니다. ${SITE.phoneDisplay}로 전화해 주세요.`)
+      setSent(`보내지 못했습니다. ${SITE.phoneDisplay}로 말씀해 주세요.`)
     } finally {
       setSending(false)
     }
@@ -94,9 +100,10 @@ export function ContactPage() {
       <Seo title={CONTACT_TITLE} description={CONTACT_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
-          <h1>시공 상담</h1>
+          <h1>철거와 인테리어 상담</h1>
           <p className="lede lede-wide">
-            경남지역 철거, 인테리어 상담을 받습니다. 전화상담은{' '}
+            창원, 마산, 진해, 김해, 밀양, 함안의 철거·인테리어를 받습니다. 걷을 것과
+            남길 것, 화장실·주방·도배장판 중 이번에 하는 항목을 적어 주세요. 전화는{' '}
             <a href="tel:01040260829">010-4026-0829</a> 입니다.
           </p>
         </div>
@@ -127,7 +134,7 @@ export function ContactPage() {
                   name="area"
                   required
                   maxLength={40}
-                  placeholder="창원, 마산, 진해 등"
+                  placeholder="읍·면·동까지"
                   defaultValue={params.get('area') ?? ''}
                 />
               </label>
@@ -148,8 +155,8 @@ export function ContactPage() {
                 rows={6}
                 placeholder={
                   kind === 'partner'
-                    ? '활동 지역, 철거·인테리어 비중, 최근 현장 유형을 적어 주세요.'
-                    : '주소의 동 이름, 평수, 철거가 필요한지, 희망 시기를 적어 주세요.'
+                    ? '직접 하는 철거·인테리어, 출동하는 시·군, 사진 사용 여부를 적어 주세요.'
+                    : '동 이름, 철거가 필요한지, 화장실·싱크대·우물천정 중 손볼 곳, 이사 날짜를 적어 주세요.'
                 }
               />
             </label>

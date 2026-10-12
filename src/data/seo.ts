@@ -4,51 +4,60 @@ import { HOME_DESCRIPTION, HOME_TITLE, SITE } from './site'
 
 export const ORIGIN = 'https://interior.jjadcompany.co.kr'
 
+export const PATHS = {
+  cheolgeo: '/cheolgeo',
+  interior: '/interior-magam',
+  region: '/gwonyeok',
+  notes: '/hyeonjang',
+  consult: '/sangdam',
+  partners: '/partners',
+} as const
+
 export const demolitionTerms = [
-  { label: '인테리어철거', href: '/demolition#interior-demo' },
-  { label: '원상복구철거', href: '/demolition#restore' },
-  { label: '상가철거', href: '/demolition#commercial' },
-  { label: '식당철거', href: '/demolition#restaurant' },
-  { label: '욕실주방철거', href: '/demolition#bathroom-kitchen' },
+  { label: '인테리어철거', href: `${PATHS.cheolgeo}#haeche` },
+  { label: '원상복구철거', href: `${PATHS.cheolgeo}#imdae` },
+  { label: '상가철거', href: `${PATHS.cheolgeo}#sangga` },
+  { label: '식당철거', href: `${PATHS.cheolgeo}#sikdang` },
+  { label: '욕실주방철거', href: `${PATHS.cheolgeo}#mul` },
 ] as const
 
 export const interiorTerms = [
-  { label: '화장실', href: '/interior#bathroom' },
-  { label: '주방', href: '/interior#kitchen' },
-  { label: '싱크대', href: '/interior#sink' },
-  { label: '타일', href: '/interior#tile-paint' },
-  { label: '조명', href: '/interior#lighting' },
-  { label: '도배장판', href: '/interior#wallpaper-floor' },
-  { label: '몰딩', href: '/interior#molding' },
-  { label: '우물천정', href: '/interior#ceiling' },
+  { label: '화장실', href: `${PATHS.interior}#hwajangsil` },
+  { label: '주방', href: `${PATHS.interior}#jubang` },
+  { label: '싱크대', href: `${PATHS.interior}#sinkdae` },
+  { label: '타일', href: `${PATHS.interior}#tile` },
+  { label: '조명', href: `${PATHS.interior}#jomyeong` },
+  { label: '도배장판', href: `${PATHS.interior}#dobae` },
+  { label: '몰딩', href: `${PATHS.interior}#molding-line` },
+  { label: '우물천정', href: `${PATHS.interior}#umul` },
 ] as const
 
 export const REGION_LINE = '창원, 마산, 진해, 김해, 밀양, 함안'
 
-export const DEMOLITION_TITLE = '인테리어철거·원상복구철거·상가철거·식당철거·욕실주방철거'
-export const DEMOLITION_DESCRIPTION = `${REGION_LINE} 인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거.`
+export const DEMOLITION_TITLE = '창원권 철거 | 인테리어철거·상가철거·식당철거·원상복구'
+export const DEMOLITION_DESCRIPTION = `${REGION_LINE}에서 인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거를 금액 줄로 나눠 적습니다.`
 
-export const INTERIOR_TITLE = '화장실·주방·싱크대·타일·조명·도배장판·몰딩·우물천정'
-export const INTERIOR_DESCRIPTION = `${REGION_LINE} 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정 인테리어 상담.`
+export const INTERIOR_TITLE = '창원권 인테리어 | 화장실·주방·싱크대·도배장판·우물천정'
+export const INTERIOR_DESCRIPTION = `${REGION_LINE} 인테리어. 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정은 철거가 필요할 때만 앞에 해체를 붙입니다.`
 
 export const AREAS_TITLE = '창원·마산·진해·김해·밀양·함안 철거·인테리어'
-export const AREAS_DESCRIPTION = `${REGION_LINE} 철거·인테리어 현장 글. 인테리어철거, 상가철거, 화장실, 도배장판, 우물천정이 지역 이야기 안에 있습니다.`
+export const AREAS_DESCRIPTION = `${REGION_LINE} 철거·인테리어. 생활권마다 상가철거, 원상복구철거, 화장실, 도배장판, 우물천정 일정이 달라집니다.`
 
-export const CONTACT_TITLE = '철거·인테리어 상담 | 창원·마산·진해·김해·밀양·함안'
+export const CONTACT_TITLE = '창원권 철거·인테리어 상담'
 export const CONTACT_DESCRIPTION = `${REGION_LINE} 인테리어철거, 상가철거, 식당철거, 화장실, 주방, 도배장판, 우물천정 상담.`
 
-export const PARTNERS_TITLE = '시공 협력 | 철거·인테리어'
-export const PARTNERS_DESCRIPTION = '철거·인테리어를 직접 하는 업체의 소개를 받습니다.'
+export const PARTNERS_TITLE = '철거·인테리어 시공 협력'
+export const PARTNERS_DESCRIPTION = '창원권에서 철거와 인테리어를 직접 하는 팀의 소개를 받습니다.'
 
-export const REVIEWS_TITLE = '작업후기 | 창원 철거·인테리어'
-export const REVIEWS_DESCRIPTION = `${REGION_LINE} 인테리어철거, 상가철거, 화장실, 주방, 도배장판 작업후기.`
+export const REVIEWS_TITLE = '창원권 철거·인테리어 현장 메모'
+export const REVIEWS_DESCRIPTION = `${REGION_LINE} 인테리어철거, 상가철거, 화장실, 주방, 도배장판을 어떻게 나눠 적었는지 남긴 글입니다.`
 
 export function areaTitle(name: string) {
-  return `${name} 인테리어철거·상가철거·화장실·도배장판`
+  return `${name} 철거·인테리어 | 상가철거·화장실·도배장판`
 }
 
 export function areaSearchCopy(name: string) {
-  return `${name}에서는 인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거를 상담하고, 마감은 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정으로 이어갑니다.`
+  return `${name}에서는 인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거를 먼저 고르고, 인테리어는 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정 중에서 이번에 하는 것만 붙입니다.`
 }
 
 export type SeoEntry = {
@@ -65,56 +74,56 @@ export function seoEntries(): SeoEntry[] {
       path: '/',
       title: HOME_TITLE,
       description: HOME_DESCRIPTION,
-      h1: '철거와 인테리어를 한 흐름으로 안내합니다',
+      h1: '철거 범위를 적은 뒤에 인테리어를 붙입니다',
       placename: '창원시',
     },
     {
-      path: '/demolition',
+      path: PATHS.cheolgeo,
       title: DEMOLITION_TITLE,
       description: DEMOLITION_DESCRIPTION,
-      h1: '인테리어철거, 상가철거, 식당철거',
+      h1: '철거는 다섯 가지로 나눠 적습니다',
       placename: '창원시',
     },
     {
-      path: '/interior',
+      path: PATHS.interior,
       title: INTERIOR_TITLE,
       description: INTERIOR_DESCRIPTION,
-      h1: '화장실, 주방, 도배장판, 우물천정',
+      h1: '인테리어는 하는 항목만 닫습니다',
       placename: '창원시',
     },
     {
-      path: '/areas',
+      path: PATHS.region,
       title: AREAS_TITLE,
       description: AREAS_DESCRIPTION,
-      h1: REGION_LINE,
+      h1: '여섯 생활권의 철거·인테리어',
       placename: '창원시',
     },
     ...areas.map((area) => ({
-      path: `/areas/${area.slug}`,
+      path: `${PATHS.region}/${area.slug}`,
       title: areaTitle(area.name),
       description: areaSearchCopy(area.name),
-      h1: `${area.name} 철거·인테리어`,
+      h1: `${area.name} 철거를 먼저, 인테리어는 그다음`,
       placename: area.name,
     })),
     {
-      path: '/contact',
+      path: PATHS.consult,
       title: CONTACT_TITLE,
       description: CONTACT_DESCRIPTION,
-      h1: '시공 상담',
+      h1: '철거와 인테리어 상담',
       placename: '창원시',
     },
     {
-      path: '/partners',
+      path: PATHS.partners,
       title: PARTNERS_TITLE,
       description: PARTNERS_DESCRIPTION,
-      h1: '함께 현장을 보는 업체',
+      h1: '철거·인테리어를 직접 하는 팀',
       placename: '창원시',
     },
     {
-      path: '/reviews',
+      path: PATHS.notes,
       title: REVIEWS_TITLE,
       description: REVIEWS_DESCRIPTION,
-      h1: '지역에 남긴 시공 글',
+      h1: '현장에서 금액을 나눈 기록',
       placename: '창원시',
     },
   ]
@@ -146,10 +155,11 @@ export function jsonLdFor(path: string, title: string, description: string) {
       '@type': 'ProfessionalService',
       '@id': `${ORIGIN}/#business`,
       name: SITE.name,
-      alternateName: [SITE.nameKo, '철거·인테리어'],
+      alternateName: [SITE.nameKo, '창원권 철거·인테리어'],
       url: `${ORIGIN}/`,
       telephone: '+82-10-4026-0892',
       description: HOME_DESCRIPTION,
+      slogan: '철거 범위를 적은 뒤에 인테리어를 붙입니다',
       areaServed: areas.map((area) => ({
         '@type': 'AdministrativeArea',
         name: area.region,
@@ -159,7 +169,7 @@ export function jsonLdFor(path: string, title: string, description: string) {
     {
       '@type': 'WebSite',
       '@id': `${ORIGIN}/#website`,
-      name: '철거·인테리어',
+      name: '창원권 철거·인테리어',
       url: `${ORIGIN}/`,
       inLanguage: 'ko-KR',
     },
@@ -176,7 +186,7 @@ export function jsonLdFor(path: string, title: string, description: string) {
     breadcrumb(normalized),
   ]
 
-  if (normalized === '/' || normalized === '/contact') {
+  if (normalized === '/' || normalized === PATHS.consult) {
     const items = normalized === '/' ? homeFaqs() : faqs
     graph.push({
       '@type': 'FAQPage',
@@ -193,16 +203,16 @@ export function jsonLdFor(path: string, title: string, description: string) {
 
 function breadcrumb(path: string) {
   const items: { name: string; path: string }[] = [{ name: '홈', path: '/' }]
-  if (path === '/demolition') items.push({ name: '철거', path })
-  else if (path === '/interior') items.push({ name: '인테리어', path })
-  else if (path === '/areas') items.push({ name: '시공지역', path })
-  else if (path.startsWith('/areas/')) {
-    items.push({ name: '시공지역', path: '/areas' })
-    const area = areas.find((item) => path === `/areas/${item.slug}`)
+  if (path === PATHS.cheolgeo) items.push({ name: '철거', path })
+  else if (path === PATHS.interior) items.push({ name: '인테리어', path })
+  else if (path === PATHS.region) items.push({ name: '창원권', path })
+  else if (path.startsWith(`${PATHS.region}/`)) {
+    items.push({ name: '창원권', path: PATHS.region })
+    const area = areas.find((item) => path === `${PATHS.region}/${item.slug}`)
     items.push({ name: area ? `${area.name} 철거·인테리어` : '지역', path })
-  } else if (path === '/contact') items.push({ name: '문의', path })
-  else if (path === '/partners') items.push({ name: '시공 협력', path })
-  else if (path === '/reviews') items.push({ name: '작업후기', path })
+  } else if (path === PATHS.consult) items.push({ name: '상담', path })
+  else if (path === PATHS.partners) items.push({ name: '시공 협력', path })
+  else if (path === PATHS.notes) items.push({ name: '현장 메모', path })
 
   return {
     '@type': 'BreadcrumbList',

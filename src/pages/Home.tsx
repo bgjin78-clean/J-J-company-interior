@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { KeywordGroups } from '../components/SeoLinks'
 import { StoryList } from '../components/StoryList'
+import { areas } from '../data/areas'
 import { homeFaqs } from '../data/faq'
+import { PATHS } from '../data/seo'
 import { HOME_DESCRIPTION, HOME_TITLE } from '../data/site'
 import { stories } from '../data/stories'
-import { demolitionServices, interiorServices, processSteps } from '../data/services'
+import { demolitionServices, engagements, interiorServices, quoteLines } from '../data/services'
 
 export function HomePage() {
   return (
@@ -13,51 +15,86 @@ export function HomePage() {
       <Seo title={HOME_TITLE} description={HOME_DESCRIPTION} />
 
       <p className="partner-call">
-        <Link to="/partners">지역별 협력업체 모집중</Link>
+        <Link to={PATHS.partners}>철거·인테리어 협력 팀을 찾습니다</Link>
       </p>
 
       <section className="hero">
         <div className="wrap hero-grid">
           <div>
+            <p className="kicker">창원 · 마산 · 진해 · 김해 · 밀양 · 함안</p>
             <h1>
-              철거와 인테리어를
+              철거 범위를 적은 뒤에
               <br />
-              한 흐름으로 안내합니다
+              인테리어를 붙입니다
             </h1>
             <p className="lede">
-              비울 곳은 인테리어철거와 상가철거로, 화장실·주방·도배장판·우물천정은
-              마감으로 이어갑니다.
+              인테리어철거, 상가철거, 식당철거, 원상복구철거, 욕실주방철거는 항목으로
+              나누고, 비운 자리에 화장실·주방·도배장판·우물천정을 올립니다.
             </p>
             <div className="hero-actions">
-              <Link className="btn btn-solid" to="/contact">
-                시공 상담 남기기
+              <Link className="btn btn-solid" to={PATHS.consult}>
+                범위부터 남기기
               </Link>
-              <Link className="btn btn-line" to="/reviews">
-                현장 글 보기
+              <Link className="btn btn-line" to={PATHS.notes}>
+                나눈 기록 보기
               </Link>
             </div>
           </div>
           <figure className="hero-photo">
-            <img src="/images/hero.jpg" alt="철거 후 마감한 주거 인테리어" />
+            <img src="/images/hero.jpg" alt="철거 후 인테리어 마감을 올린 거실" />
             <figcaption>
-              <strong>철거, 인테리어</strong>
-              <span>해체부터 마감까지</span>
+              <strong>창원권 철거·인테리어</strong>
+              <span>해체 줄과 마감 줄을 분리</span>
             </figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section className="band band-tight">
+        <div className="wrap">
+          <div className="section-title">
+            <h2>맡기는 방식을 먼저 고릅니다</h2>
+          </div>
+          <div className="choice-grid">
+            {engagements.map((item) => (
+              <article key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <h2>주요업무분야</h2>
+            <h2>견적에 나누는 줄</h2>
+            <p className="sub">철거비, 양중, 잔재, 인테리어 자재를 한 문장에 섞지 않습니다.</p>
+          </div>
+          <ul className="line-list">
+            {quoteLines.map((line) => (
+              <li key={line.label}>
+                <strong>{line.label}</strong>
+                <span>{line.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="wrap">
+          <div className="section-title">
+            <h2>공종 이름</h2>
+            <p className="sub">철거 다섯 가지와 인테리어 마감을 각각 다른 주소로 열어 둡니다.</p>
           </div>
           <div className="field-groups">
             <div>
               <h3>철거</h3>
               <div className="field-grid">
                 {demolitionServices.map((item) => (
-                  <Link key={item.id} to={`/demolition#${item.id}`} className="field-card">
+                  <Link key={item.id} to={`${PATHS.cheolgeo}#${item.id}`} className="field-card">
                     <img src={item.image} alt={item.imageAlt} />
                     <strong>{item.title}</strong>
                   </Link>
@@ -68,7 +105,7 @@ export function HomePage() {
               <h3>인테리어</h3>
               <div className="field-grid">
                 {interiorServices.map((item) => (
-                  <Link key={item.id} to={`/interior#${item.id}`} className="field-card">
+                  <Link key={item.id} to={`${PATHS.interior}#${item.id}`} className="field-card">
                     <img src={item.image} alt={item.imageAlt} />
                     <strong>{item.title}</strong>
                   </Link>
@@ -76,84 +113,45 @@ export function HomePage() {
               </div>
             </div>
           </div>
+          <div className="detail-gap">
+            <KeywordGroups />
+          </div>
         </div>
       </section>
 
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <h2>시공후기</h2>
+            <h2>생활권마다 다른 일정</h2>
+          </div>
+          <div className="area-index">
+            {areas.map((area, index) => (
+              <Link key={area.slug} to={`${PATHS.region}/${area.slug}`} className="area-row">
+                <b>{String(index + 1).padStart(2, '0')}</b>
+                <strong>{area.name}</strong>
+                <span>철거·인테리어</span>
+                <em>{area.headline}</em>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="wrap">
+          <div className="section-title">
+            <h2>최근에 금액을 나눈 현장</h2>
           </div>
           <StoryList stories={stories} linked compact />
-        </div>
-      </section>
-
-      <section className="band band-tight">
-        <div className="wrap">
-          <div className="section-title">
-            <p className="kicker">공종</p>
-            <h2>자주 찾는 시공</h2>
-            <p className="sub">
-              인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거와 화장실, 주방,
-              싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정.
-            </p>
-          </div>
-          <KeywordGroups />
-        </div>
-      </section>
-
-      <section className="band">
-        <div className="wrap split">
-          <Link to="/interior" className="split-card">
-            <p>인테리어</p>
-            <h2>마감 시공</h2>
-            <span>
-              {interiorServices
-                .slice(0, 4)
-                .map((s) => s.title)
-                .join(' · ')}
-            </span>
-            <em>분야 보기</em>
-          </Link>
-          <Link to="/demolition" className="split-card split-card-dark">
-            <p>철거·정리</p>
-            <h2>해체와 반출</h2>
-            <span>
-              {demolitionServices
-                .slice(0, 4)
-                .map((s) => s.title)
-                .join(' · ')}
-            </span>
-            <em>분야 보기</em>
-          </Link>
-        </div>
-      </section>
-
-      <section className="band">
-        <div className="wrap">
-          <div className="section-title">
-            <p className="kicker">순서</p>
-            <h2>상담이 시공으로 이어지는 과정</h2>
-          </div>
-          <ol className="steps">
-            {processSteps.map((step) => (
-              <li key={step.step}>
-                <span>{step.step}</span>
-                <strong>{step.title}</strong>
-                <p>{step.desc}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
       <section className="band">
         <div className="wrap faq-preview">
           <div>
-            <p className="kicker">질문</p>
-            <h2>상담 전에 자주 묻는 일</h2>
-            <Link className="text-link" to="/contact">
-              문의·전체 FAQ
+            <h2>상담 전에 갈리는 질문</h2>
+            <Link className="text-link" to={PATHS.consult}>
+              상담·나머지 질문
             </Link>
           </div>
           <div className="faq-list">
