@@ -12,10 +12,11 @@ export function DemolitionPage() {
       <section className="page-hero">
         <div className="wrap">
           <p className="kicker">철거</p>
-          <h1>철거는 다섯 가지로 나눠 적습니다</h1>
+          <h1>현장에 필요한 철거를 진행합니다</h1>
           <p className="lede lede-wide">
-            {REGION_LINE}에서 인테리어철거, 원상복구철거, 상가철거, 식당철거, 욕실주방철거를
-            한 금액으로 묶지 않습니다. 부분철거와 잔재 차는 해당할 때만 줄을 추가합니다.
+            {REGION_LINE}에서 집과 상가의 철거를 상담합니다. 인테리어를 앞둔 해체, 임대 종료
+            후의 원상복구철거, 상가철거와 식당철거, 욕실과 주방처럼 물을 쓰는 공간, 일부만
+            비우는 부분철거와 잔재 정리까지 현장 범위에 맞춰 진행합니다.
           </p>
         </div>
       </section>
@@ -45,18 +46,19 @@ export function DemolitionPage() {
           <StoryList stories={stories.filter((story) => story.category !== '화장실' && story.category !== '우물천정')} />
         </div>
       </section>
-      <section className="band">
+      <section className="band" id="prep">
         <div className="wrap note">
-          <h2>철거 상담에 사진을 붙이면 좋은 것</h2>
+          <h2>철거 상담 전에 준비할 사항</h2>
+          <p>아래를 미리 챙겨 주시면 상담이 더 빨리 진행됩니다.</p>
           <ul>
-            <li>남길 문과 걷을 벽이 같이 보이게 찍은 사진</li>
-            <li>아파트 승강기 사용이 끝나는 시각</li>
-            <li>원상복구철거라면 복구 문장이 있는 계약 한 장</li>
-            <li>식당철거라면 주방 설비와 마지막 영업 시각</li>
-            <li>잔재 차가 설 자리</li>
+            <li>남길 곳과 걷어 낼 곳이 같이 보이게 찍은 사진</li>
+            <li>아파트라면 승강기를 쓸 수 있는 시간</li>
+            <li>원상복구철거라면 복구 범위가 적힌 계약서</li>
+            <li>식당철거라면 주방 설비 사진과 마지막 영업 시간</li>
+            <li>폐기물을 실을 차가 설 수 있는 자리</li>
           </ul>
           <Link className="btn btn-solid" to={PATHS.consult}>
-            철거 범위 남기기
+            철거 상담하기
           </Link>
         </div>
       </section>

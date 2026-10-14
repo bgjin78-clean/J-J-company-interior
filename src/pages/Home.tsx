@@ -23,13 +23,13 @@ export function HomePage() {
           <div>
             <p className="kicker">창원 · 마산 · 진해 · 김해 · 밀양 · 함안</p>
             <h1>
-              철거 범위를 적은 뒤에
+              철거는 필요한 곳만 걷어 내고
               <br />
-              인테리어를 붙입니다
+              인테리어는 그 자리에 맞춥니다
             </h1>
             <p className="lede">
-              인테리어철거, 상가철거, 식당철거, 원상복구철거, 욕실주방철거는 항목으로
-              나누고, 비운 자리에 화장실·주방·도배장판·우물천정을 올립니다.
+              상가철거, 식당철거, 원상복구철거와 인테리어철거는 비울 곳을 정해서
+              진행합니다. 화장실, 주방, 도배장판, 우물천정은 인테리어로 마무리합니다.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-solid" to={PATHS.consult}>
@@ -43,7 +43,7 @@ export function HomePage() {
           <figure className="hero-photo">
             <img src="/images/hero.jpg" alt="철거 후 인테리어 마감을 올린 거실" />
             <figcaption>
-              <strong>창원권 철거·인테리어</strong>
+              <strong>경남권 철거·인테리어</strong>
               <span>해체 줄과 마감 줄을 분리</span>
             </figcaption>
           </figure>
@@ -69,7 +69,7 @@ export function HomePage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <h2>견적에 나누는 줄</h2>
+            <h2>견적에 들어가는 항목</h2>
             <p className="sub">철거비, 양중, 잔재, 인테리어 자재를 한 문장에 섞지 않습니다.</p>
           </div>
           <ul className="line-list">
@@ -87,7 +87,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="section-title">
             <h2>공종 이름</h2>
-            <p className="sub">철거 다섯 가지와 인테리어 마감을 각각 다른 주소로 열어 둡니다.</p>
+            <p className="sub">철거와 인테리어를 공사 종류별로 안내합니다.</p>
           </div>
           <div className="field-groups">
             <div>
@@ -122,7 +122,7 @@ export function HomePage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <h2>생활권마다 다른 일정</h2>
+            <h2>지역별 안내</h2>
           </div>
           <div className="area-index">
             {areas.map((area, index) => (

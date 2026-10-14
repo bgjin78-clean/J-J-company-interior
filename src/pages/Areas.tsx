@@ -17,8 +17,8 @@ export function AreasPage() {
       <Seo title={AREAS_TITLE} description={AREAS_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
-          <p className="kicker">창원권</p>
-          <h1>여섯 생활권의 철거·인테리어</h1>
+          <p className="kicker">경남권</p>
+          <h1>경남 여섯 지역의 철거·인테리어</h1>
           <p className="lede lede-wide">
             창원, 마산, 진해, 김해, 밀양, 함안은 승강기 시간, 골목 반출, 임대 종료일이
             다릅니다. 인테리어철거와 상가철거, 화장실과 도배장판, 우물천정은 그 조건 위에
@@ -75,7 +75,7 @@ export function AreaDetailPage() {
         </div>
         <div className="wrap detail-grid detail-gap">
           <div>
-            <h2>이 생활권에서 금액이 갈리는 이유</h2>
+            <h2>이 지역에서 비용이 달라지는 이유</h2>
             <ul className="plain-list">
               {area.notes.map((note) => (
                 <li key={note}>{note}</li>

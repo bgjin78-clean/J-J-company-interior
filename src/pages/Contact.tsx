@@ -59,7 +59,7 @@ export function ContactPage() {
     const topic = String(data.get('topic') ?? '').trim()
     const message = String(data.get('message') ?? '').trim()
     const body = [
-      `[창원권 철거·인테리어] ${headline}`,
+      `[경남권 철거·인테리어] ${headline}`,
       `이름: ${name}`,
       `연락처: ${phone}`,
       `지역: ${area}`,

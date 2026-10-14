@@ -7,7 +7,7 @@ const links = [
   { to: '/', label: '홈' },
   { to: PATHS.cheolgeo, label: '철거' },
   { to: PATHS.interior, label: '인테리어' },
-  { to: PATHS.region, label: '창원권' },
+  { to: PATHS.region, label: '경남권' },
   { to: PATHS.notes, label: '현장 메모' },
   { to: PATHS.consult, label: '상담' },
 ]

@@ -18,7 +18,7 @@ export function Footer() {
           <p className="foot-label">메뉴</p>
           <Link to={PATHS.cheolgeo}>철거</Link>
           <Link to={PATHS.interior}>인테리어</Link>
-          <Link to={PATHS.region}>창원권</Link>
+          <Link to={PATHS.region}>경남권</Link>
           {areas.map((area) => (
             <Link key={area.slug} to={`${PATHS.region}/${area.slug}`}>
               {area.name} 철거·인테리어
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
       </div>
       <div className="wrap foot-bottom">
-        <span>창원권 철거·인테리어</span>
+        <span>경남권 철거·인테리어</span>
       </div>
     </footer>
   )

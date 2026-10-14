@@ -32,7 +32,7 @@ export function PartnersPage() {
             <p className="kicker">시공 협력</p>
             <h1>철거·인테리어를 직접 하는 팀</h1>
             <p className="lede">
-              창원권에서 해체와 마감을 직접 하는 팀의 소개를 받습니다. 가는 지역과
+              경남에서 해체와 마감을 직접 하는 팀의 소개를 받습니다. 가는 지역과
               최근 철거·인테리어 현장을 남겨 주시면 연락드립니다.
             </p>
             <Link className="btn btn-solid" to={`${PATHS.consult}?type=partner`}>
