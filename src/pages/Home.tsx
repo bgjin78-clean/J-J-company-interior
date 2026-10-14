@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { KeywordGroups } from '../components/SeoLinks'
 import { StoryList } from '../components/StoryList'
-import { areas } from '../data/areas'
 import { homeFaqs } from '../data/faq'
 import { PATHS } from '../data/seo'
 import { HOME_DESCRIPTION, HOME_TITLE } from '../data/site'
@@ -115,24 +114,6 @@ export function HomePage() {
           </div>
           <div className="detail-gap">
             <KeywordGroups />
-          </div>
-        </div>
-      </section>
-
-      <section className="band">
-        <div className="wrap">
-          <div className="section-title">
-            <h2>지역별 안내</h2>
-          </div>
-          <div className="area-index">
-            {areas.map((area, index) => (
-              <Link key={area.slug} to={`${PATHS.region}/${area.slug}`} className="area-row">
-                <b>{String(index + 1).padStart(2, '0')}</b>
-                <strong>{area.name}</strong>
-                <span>철거·인테리어</span>
-                <em>{area.headline}</em>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
