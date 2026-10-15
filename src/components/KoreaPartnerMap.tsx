@@ -17,7 +17,7 @@ type Hot = string | null
 function tipFor(city: Hot) {
   if (!city) return '지도나 표의 시·군에 커서를 올리면 그 지역이 표시됩니다.'
   if (city === PARTNER_CITY) {
-    return '경상남도 창원시에서 철거·인테리어를 합니다. 마산·진해도 이 시에 포함됩니다.'
+    return '창원시입니다. 마산·진해도 이 시에 포함됩니다. 시공지역은 부산, 경남 전지역입니다.'
   }
   const region = regions.find((item) => item.city === city)
   return region ? `${region.province} ${city}` : city
@@ -106,7 +106,7 @@ export function KoreaPartnerMap() {
       <div className="korea-maps">
         <MapFrame
           title="대한민국 시·도"
-          label="대한민국 시·도 지도. 창원시가 표시되어 있습니다."
+          label="대한민국 시·도 지도. 시공지역은 부산, 경남 전지역입니다."
           view={mapView}
           areas={regions}
           outlines={provinceOutlines}
@@ -115,7 +115,7 @@ export function KoreaPartnerMap() {
         />
         <MapFrame
           title="경상남도 시·군"
-          label="경상남도 시·군 지도. 창원시가 색으로 표시되어 있습니다."
+          label="경상남도 시·군 지도. 시공지역은 부산, 경남 전지역입니다."
           view={gyeongnamView}
           areas={gyeongnam}
           outlines={gyeongnamOutline}

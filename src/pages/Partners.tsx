@@ -10,7 +10,7 @@ const terms = [
   },
   {
     title: '가는 곳',
-    text: '창원, 마산, 진해, 김해, 밀양, 함안 중 실제로 출동하는 곳과, 면 단위까지 가는지를 적어 주세요.',
+    text: '부산, 경남 전지역 가운데 실제로 출동하는 곳을 적어 주세요.',
   },
   {
     title: '금액 줄',
@@ -32,8 +32,8 @@ export function PartnersPage() {
             <p className="kicker">시공 협력</p>
             <h1>철거·인테리어를 직접 하는 팀</h1>
             <p className="lede">
-              경남에서 해체와 마감을 직접 하는 팀의 소개를 받습니다. 가는 지역과
-              최근 철거·인테리어 현장을 남겨 주시면 연락드립니다.
+              부산, 경남 전지역에서 철거와 인테리어를 직접 하는 팀의 소개를 받습니다. 가는 지역과
+              최근 현장을 남겨 주시면 연락드립니다.
             </p>
             <Link className="btn btn-solid" to={`${PATHS.consult}?type=partner`}>
               팀 소개 남기기
@@ -48,10 +48,7 @@ export function PartnersPage() {
           <div className="section-title">
             <p className="kicker">지역</p>
             <h2>시·도로 보는 활동 지역</h2>
-            <p className="sub">
-              대한민국을 도와 시·군으로 나눴습니다. 색이 들어간 곳은 창원입니다.
-              마산과 진해는 창원시에 포함됩니다.
-            </p>
+            <p className="sub">시공지역은 부산, 경남 전지역입니다.</p>
           </div>
           <KoreaPartnerMap />
         </div>

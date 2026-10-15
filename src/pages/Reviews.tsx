@@ -45,8 +45,7 @@ export function ReviewsPage() {
           <p className="kicker">작업후기</p>
           <h1>작업후기</h1>
           <p className="lede lede-wide">
-            창원, 마산, 진해, 김해, 밀양, 함안에서 철거 범위와 인테리어 항목을 왜 다른 줄로
-            적었는지 남긴 기록입니다. 금액이 갈린 이유만 적고, 같은 문장을 반복하지 않습니다.
+            부산, 경남 전지역에서 철거와 인테리어를 어떻게 나눴는지 남긴 기록입니다.
           </p>
         </div>
       </section>

@@ -32,25 +32,25 @@ export const interiorTerms = [
   { label: '우물천정', href: `${PATHS.interior}#umul` },
 ] as const
 
-export const REGION_LINE = '창원, 마산, 진해, 김해, 밀양, 함안'
+export const REGION_LINE = '부산, 경남 전지역'
 
-export const DEMOLITION_TITLE = '경남 철거·정리 | JJ애드컴퍼니 · 상가철거·원상복구·부분철거'
-export const DEMOLITION_DESCRIPTION = `${REGION_LINE}. 제이앤제이 애드컴퍼니의 인테리어철거, 원상복구철거, 상가철거, 식당철거, 부분철거와 폐기물 정리. 상담 ${SITE.phoneDisplay}.`
+export const DEMOLITION_TITLE = '부산·경남 철거·정리 | 상가철거·원상복구·부분철거'
+export const DEMOLITION_DESCRIPTION = `${REGION_LINE} 철거·정리. 인테리어철거, 원상복구철거, 상가철거, 식당철거, 부분철거와 폐기물 정리. 상담 ${SITE.phoneDisplay}.`
 
-export const INTERIOR_TITLE = '경남 인테리어 | JJ애드컴퍼니 · 화장실·주방·도배장판·우물천정'
-export const INTERIOR_DESCRIPTION = `${REGION_LINE} 인테리어. 제이앤제이 애드컴퍼니가 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정을 필요한 칸만 진행합니다.`
+export const INTERIOR_TITLE = '부산·경남 인테리어 | 화장실·주방·도배장판·우물천정'
+export const INTERIOR_DESCRIPTION = `${REGION_LINE} 인테리어. 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정을 필요한 곳만 진행합니다.`
 
-export const AREAS_TITLE = '시공지역 | 창원·마산·진해·김해·밀양·함안 · JJ애드컴퍼니'
-export const AREAS_DESCRIPTION = `${REGION_LINE} 시공지역. 지역마다 상가철거, 원상복구철거, 화장실, 도배장판, 우물천정 조건이 다릅니다. ${SITE.nameKo}.`
+export const AREAS_TITLE = '시공지역 | 부산, 경남 전지역'
+export const AREAS_DESCRIPTION = `${REGION_LINE} 철거·인테리어. 현장 조건에 따라 상가철거, 원상복구, 화장실, 도배장판, 우물천정 진행이 달라집니다.`
 
-export const CONTACT_TITLE = '문의·FAQ | 경남 철거·인테리어 상담 · JJ애드컴퍼니'
+export const CONTACT_TITLE = '문의·FAQ | 부산·경남 철거·인테리어 상담'
 export const CONTACT_DESCRIPTION = `${REGION_LINE} 시공상담과 업체상담. 인테리어철거, 상가철거, 화장실, 주방, 도배장판, 우물천정. 전화 ${SITE.phoneDisplay}.`
 
-export const PARTNERS_TITLE = '철거·인테리어 시공 협력 | JJ애드컴퍼니'
-export const PARTNERS_DESCRIPTION = '경남에서 철거와 인테리어를 직접 하는 팀의 업체상담을 받습니다. 제이앤제이 애드컴퍼니.'
+export const PARTNERS_TITLE = '철거·인테리어 시공 협력'
+export const PARTNERS_DESCRIPTION = '부산, 경남 전지역에서 철거와 인테리어를 직접 하는 팀의 업체상담을 받습니다.'
 
-export const REVIEWS_TITLE = '작업후기 | 경남 철거·인테리어 현장 · JJ애드컴퍼니'
-export const REVIEWS_DESCRIPTION = `${REGION_LINE} 작업후기. 인테리어철거, 상가철거, 화장실, 주방, 도배장판을 어떻게 나눠 적었는지 남긴 글입니다.`
+export const REVIEWS_TITLE = '작업후기 | 부산·경남 철거·인테리어'
+export const REVIEWS_DESCRIPTION = `${REGION_LINE} 작업후기. 인테리어철거, 상가철거, 화장실, 주방, 도배장판을 어떻게 나눴는지 남긴 글입니다.`
 
 export function areaTitle(name: string) {
   return `${name} 철거·인테리어 | 상가철거·화장실·도배장판`
@@ -74,29 +74,29 @@ export function seoEntries(): SeoEntry[] {
       path: '/',
       title: HOME_TITLE,
       description: HOME_DESCRIPTION,
-      h1: '경남 철거·인테리어는 범위를 나눠 적습니다',
-      placename: '창원시',
+      h1: '철거와 인테리어는 범위를 나눠 진행합니다',
+      placename: '부산, 경남',
     },
     {
       path: PATHS.cheolgeo,
       title: DEMOLITION_TITLE,
       description: DEMOLITION_DESCRIPTION,
       h1: '철거·정리는 다음 사용을 위한 합리적인 철거입니다',
-      placename: '창원시',
+      placename: '부산, 경남',
     },
     {
       path: PATHS.interior,
       title: INTERIOR_TITLE,
       description: INTERIOR_DESCRIPTION,
       h1: '필요한 곳만 인테리어합니다',
-      placename: '창원시',
+      placename: '부산, 경남',
     },
     {
       path: PATHS.region,
       title: AREAS_TITLE,
       description: AREAS_DESCRIPTION,
       h1: '시공지역',
-      placename: '창원시',
+      placename: '부산, 경남',
     },
     ...areas.map((area) => ({
       path: `${PATHS.region}/${area.slug}`,
@@ -110,21 +110,21 @@ export function seoEntries(): SeoEntry[] {
       title: CONTACT_TITLE,
       description: CONTACT_DESCRIPTION,
       h1: '문의·FAQ',
-      placename: '창원시',
+      placename: '부산, 경남',
     },
     {
       path: PATHS.partners,
       title: PARTNERS_TITLE,
       description: PARTNERS_DESCRIPTION,
       h1: '철거·인테리어를 직접 하는 팀',
-      placename: '창원시',
+      placename: '부산, 경남',
     },
     {
       path: PATHS.notes,
       title: REVIEWS_TITLE,
       description: REVIEWS_DESCRIPTION,
       h1: '작업후기',
-      placename: '창원시',
+      placename: '부산, 경남',
     },
   ]
 }
@@ -155,16 +155,16 @@ export function jsonLdFor(path: string, title: string, description: string) {
       '@type': 'ProfessionalService',
       '@id': `${ORIGIN}/#business`,
       name: SITE.nameKo,
-      alternateName: [SITE.name, 'JJ애드컴퍼니', '경남 철거·인테리어'],
+      alternateName: [SITE.name, 'JJ애드컴퍼니', '부산·경남 철거·인테리어'],
       url: `${ORIGIN}/`,
       telephone: '+82-10-4026-0892',
       description: HOME_DESCRIPTION,
-      slogan: '경남 철거·인테리어는 범위를 나눠 적습니다',
+      slogan: '부산, 경남 전지역의 철거·인테리어',
       openingHours: 'Mo-Fr 09:00-18:00',
-      areaServed: areas.map((area) => ({
-        '@type': 'AdministrativeArea',
-        name: area.region,
-      })),
+      areaServed: [
+        { '@type': 'AdministrativeArea', name: '부산광역시' },
+        { '@type': 'AdministrativeArea', name: '경상남도' },
+      ],
       knowsAbout,
     },
     {

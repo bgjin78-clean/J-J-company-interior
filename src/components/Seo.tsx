@@ -37,7 +37,7 @@ export function Seo({ title, description }: { title?: string; description?: stri
     upsertMeta('name', 'description', desc)
     upsertMeta('name', 'robots', 'index, follow')
     upsertMeta('name', 'geo.region', 'KR-48')
-    upsertMeta('name', 'geo.placename', entry?.placename ?? '창원시')
+    upsertMeta('name', 'geo.placename', entry?.placename ?? '부산, 경남')
     upsertLink('canonical', url)
     upsertMeta('property', 'og:type', 'website')
     upsertMeta('property', 'og:locale', 'ko_KR')

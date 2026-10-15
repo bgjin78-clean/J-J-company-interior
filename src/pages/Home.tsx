@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { homeFaqs } from '../data/faq'
 import { PATHS } from '../data/seo'
-import { HOME_DESCRIPTION, HOME_TITLE, SITE, phoneHref, priorityRegions } from '../data/site'
+import { HOME_DESCRIPTION, HOME_TITLE, SITE, phoneHref } from '../data/site'
 import { stories } from '../data/stories'
 import { demolitionServices, engagements, interiorServices } from '../data/services'
 
@@ -20,7 +20,7 @@ const entries = [
   {
     to: PATHS.region,
     label: '시공지역',
-    text: '창원·마산·진해·김해·밀양·함안. 승강기 시간과 골목 반입이 동네마다 다릅니다.',
+    text: '부산, 경남 전지역. 현장 조건에 맞춰 일정을 잡습니다.',
   },
   {
     to: PATHS.notes,
@@ -34,18 +34,22 @@ export function HomePage() {
     <>
       <Seo title={HOME_TITLE} description={HOME_DESCRIPTION} />
 
+      <p className="partner-call">
+        <Link to={PATHS.partners}>철거,인테리어 협력업체 모집</Link>
+      </p>
+
       <section className="hero">
         <div className="wrap hero-grid">
           <div>
-            <p className="kicker">JJ애드컴퍼니 · {priorityRegions.join(' · ')}</p>
+            <p className="kicker">JJ애드컴퍼니 · 부산, 경남 전지역</p>
             <h1>
-              경남 철거·인테리어는
+              철거와 인테리어는
               <br />
-              범위를 나눠 적습니다
+              범위를 나눠 진행합니다
             </h1>
             <p className="lede">
-              {SITE.nameKo}가 창원에서 함안까지 현장을 받습니다. 비울 곳은 철거·정리로,
-              다시 닫을 칸은 인테리어로 견적을 나눕니다. 전화 {SITE.phoneDisplay}.
+              부산, 경남 전지역을 상담합니다. 비울 곳은 철거·정리로, 다시 꾸밀 곳은
+              인테리어로 나눕니다. 전화 {SITE.phoneDisplay}.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-solid" to={PATHS.interior}>
@@ -57,7 +61,7 @@ export function HomePage() {
             </div>
           </div>
           <figure className="hero-photo">
-            <img src="/images/hero.jpg" alt="우물천정과 마루를 마친 경남 아파트 거실" />
+            <img src="/images/hero.jpg" alt="우물천정과 마루를 마친 거실" />
             <figcaption>
               <strong>{SITE.nameKo}</strong>
               <span>철거 줄과 마감 줄을 분리</span>

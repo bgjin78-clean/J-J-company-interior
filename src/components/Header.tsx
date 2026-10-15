@@ -29,7 +29,7 @@ export function Header() {
           <img src="/logo.svg?v=2" alt="" width={42} height={42} />
           <span className="logo-name">
             <strong>JJ애드컴퍼니</strong>
-            <em>경남 철거·인테리어</em>
+            <em>부산·경남 철거·인테리어</em>
           </span>
         </Link>
         <nav className={open ? 'nav is-open' : 'nav'}>

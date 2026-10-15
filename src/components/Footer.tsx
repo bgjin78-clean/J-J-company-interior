@@ -35,7 +35,7 @@ export function Footer() {
           <p className="foot-region">부산, 경남 전지역</p>
         </div>
         <div>
-          <p className="foot-label">사업자 정보</p>
+          <p className="foot-label">시공업체 정보</p>
           <dl className="biz-fields">
             {businessFields.map((field) => (
               <div key={field.label}>

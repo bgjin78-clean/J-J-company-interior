@@ -6,11 +6,11 @@ import { SITE, phoneHref } from '../data/site'
 import { demolitionServices } from '../data/services'
 
 const prep = [
-  '남길 곳과 걷어 낼 곳이 같이 보이게 찍은 사진',
+  '남길 곳과 철거할 곳이 같이 보이는 사진',
   '아파트라면 승강기를 쓸 수 있는 시간',
-  '원상복구철거라면 복구 범위가 적힌 계약 문장',
-  '식당철거라면 주방 설비 사진과 마지막 영업 시간',
-  '폐기물을 실을 차가 설 자리',
+  '원상복구라면 계약서의 복구 범위',
+  '식당이라면 주방 사진과 마지막 영업 시간',
+  '폐기물 차량이 설 자리',
 ]
 
 export function DemolitionPage() {
@@ -23,9 +23,7 @@ export function DemolitionPage() {
             <p className="kicker">철거·정리</p>
             <h1>철거·정리는 다음 사용을 위한 합리적인 철거입니다</h1>
             <p className="lede">
-              부산, 경남 전지역의 집과 상가를 상담합니다. 다음에 어떻게 쓸지를 보고, 꼭
-              필요한 곳만 철거하고 정리합니다. 인테리어 전 철거, 임대가 끝난 원상복구,
-              상가와 식당 철거, 욕실·주방, 일부만 하는 부분철거까지 범위에 맞게 진행합니다.
+              부산, 경남 전지역에서 다음에 쓸 곳에 맞춰, 필요한 만큼만 철거하고 정리합니다.
             </p>
           </div>
           <img src="/images/partial.jpg" alt="한 구간만 걷어 낸 부분철거 현장" />
@@ -35,7 +33,7 @@ export function DemolitionPage() {
         <div className="wrap">
           <div className="section-title">
             <h2>철거·정리 세부 분야</h2>
-            <p className="sub">해체비, 양중, 잔재는 인테리어 자재와 다른 줄로 적습니다.</p>
+            <p className="sub">철거와 정리는 인테리어와 따로 안내합니다.</p>
           </div>
           <ServiceCards items={demolitionServices} />
         </div>
@@ -56,7 +54,6 @@ export function DemolitionPage() {
       <section className="band">
         <div className="wrap call-band">
           <div>
-            <p className="kicker">JJ애드컴퍼니</p>
             <h2>{SITE.phoneDisplay}</h2>
             <p>
               {SITE.hours} · 부산, 경남 전지역
