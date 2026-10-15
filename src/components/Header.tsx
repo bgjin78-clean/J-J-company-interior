@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { PATHS } from '../data/seo'
-import { SITE, phoneHref } from '../data/site'
 
 const links = [
   { to: '/', label: '홈' },
-  { to: PATHS.cheolgeo, label: '철거' },
   { to: PATHS.interior, label: '인테리어' },
-  { to: PATHS.region, label: '경남권' },
-  { to: PATHS.notes, label: '현장 메모' },
-  { to: PATHS.consult, label: '상담' },
+  { to: PATHS.cheolgeo, label: '철거·정리' },
+  { to: PATHS.region, label: '시공지역' },
+  { to: PATHS.notes, label: '작업후기' },
+  { to: PATHS.consult, label: '문의·FAQ' },
 ]
 
 export function Header() {
@@ -28,7 +27,10 @@ export function Header() {
         </button>
         <Link to="/" className="logo" onClick={() => setOpen(false)}>
           <img src="/logo.svg?v=2" alt="" width={42} height={42} />
-          <span>철거·인테리어</span>
+          <span className="logo-name">
+            <strong>JJ애드컴퍼니</strong>
+            <em>경남 철거·인테리어</em>
+          </span>
         </Link>
         <nav className={open ? 'nav is-open' : 'nav'}>
           {links.map((link) => (
@@ -42,9 +44,9 @@ export function Header() {
             </NavLink>
           ))}
         </nav>
-        <a className="head-cta" href={phoneHref}>
-          {SITE.phoneDisplay}
-        </a>
+        <Link className="head-cta" to={PATHS.consult} onClick={() => setOpen(false)}>
+          상담 문의
+        </Link>
       </div>
     </header>
   )

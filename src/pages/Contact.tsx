@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 import { Seo } from '../components/Seo'
 import { faqs } from '../data/faq'
 import { CONTACT_DESCRIPTION, CONTACT_TITLE } from '../data/seo'
-import { SITE } from '../data/site'
+import { SITE, phoneHref } from '../data/site'
 
 const EMAILJS_PUBLIC_KEY = 'JKsVOKPtnWHIr2BCV'
 const EMAILJS_SERVICE_ID = 'allbarunclean'
@@ -45,7 +45,7 @@ export function ContactPage() {
   const [sending, setSending] = useState(false)
 
   const headline = useMemo(
-    () => (kind === 'partner' ? '업체 문의' : '시공 상담'),
+    () => (kind === 'partner' ? '업체상담' : '시공상담'),
     [kind],
   )
 
@@ -59,7 +59,7 @@ export function ContactPage() {
     const topic = String(data.get('topic') ?? '').trim()
     const message = String(data.get('message') ?? '').trim()
     const body = [
-      `[경남권 철거·인테리어] ${headline}`,
+      `[JJ애드컴퍼니] ${headline}`,
       `이름: ${name}`,
       `연락처: ${phone}`,
       `지역: ${area}`,
@@ -100,23 +100,38 @@ export function ContactPage() {
       <Seo title={CONTACT_TITLE} description={CONTACT_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
-          <h1>철거와 인테리어 상담</h1>
+          <p className="kicker">문의·FAQ</p>
+          <h1>문의·FAQ</h1>
           <p className="lede lede-wide">
-            창원, 마산, 진해, 김해, 밀양, 함안의 철거·인테리어를 받습니다. 걷을 것과
-            남길 것, 화장실·주방·도배장판 중 이번에 하는 항목을 적어 주세요. 전화는{' '}
-            <a href="tel:01040260829">010-4026-0829</a> 입니다.
+            창원, 마산, 진해, 김해, 밀양, 함안의 철거·인테리어 상담입니다. 시공 범위와 공사
+            기간, 견적 방식을 안내하고, 철거가 필요하면 폐기물 처리까지 같은 상담에서
+            나눕니다. 시공상담과 업체상담은 양식을 나눠 받습니다.
           </p>
         </div>
       </section>
       <section className="band">
-        <div className="wrap contact-grid">
+        <div className="wrap contact-layout">
+          <aside className="contact-aside">
+            <h2>상담 안내</h2>
+            <a className="contact-phone" href={phoneHref}>
+              {SITE.phoneDisplay}
+            </a>
+            <p>상담 가능 시간 {SITE.hours}</p>
+            <p>현장 방문은 일정 협의 후 진행합니다.</p>
+            <ul>
+              <li>시공지역: 창원 · 마산 · 진해 · 김해 · 밀양 · 함안</li>
+              <li>시공상담: 철거 · 인테리어 · 부분수리</li>
+              <li>업체상담: 직접 시공하는 팀</li>
+            </ul>
+          </aside>
           <form className="form" onSubmit={onSubmit}>
+            <h2>상담 요청</h2>
             <div className="kind-switch">
               <button type="button" className={kind === 'customer' ? 'is-on' : ''} onClick={() => setKind('customer')}>
-                시공 상담
+                시공상담
               </button>
               <button type="button" className={kind === 'partner' ? 'is-on' : ''} onClick={() => setKind('partner')}>
-                업체 문의
+                업체상담
               </button>
             </div>
             <label>
@@ -127,7 +142,7 @@ export function ContactPage() {
               연락처
               <input name="phone" required inputMode="tel" maxLength={20} />
             </label>
-            <div className="form-row">
+            <div className="form-row form-row-two">
               <label>
                 지역
                 <input
@@ -165,6 +180,12 @@ export function ContactPage() {
             </button>
             {sent ? <p className="form-note">{sent}</p> : null}
           </form>
+        </div>
+        <div className="wrap faq-block">
+          <div className="section-title">
+            <h2>자주 묻는 내용</h2>
+            <p className="sub">견적, 아파트 작업, 폐기물, 공사 범위, 협력 상담을 모아 두었습니다.</p>
+          </div>
           <div className="faq-list">
             {faqs.map((item) => (
               <details key={item.id}>

@@ -2,7 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { KeywordGroups } from '../components/SeoLinks'
 import { StoryList } from '../components/StoryList'
-import { areas } from '../data/areas'
+import { areas, districtGuides } from '../data/areas'
 import { stories } from '../data/stories'
 import { AREAS_DESCRIPTION, AREAS_TITLE, PATHS, areaSearchCopy, areaTitle } from '../data/seo'
 
@@ -17,25 +17,50 @@ export function AreasPage() {
       <Seo title={AREAS_TITLE} description={AREAS_DESCRIPTION} />
       <section className="page-hero">
         <div className="wrap">
-          <p className="kicker">경남권</p>
-          <h1>경남 여섯 지역의 철거·인테리어</h1>
+          <p className="kicker">시공지역</p>
+          <h1>시공지역</h1>
           <p className="lede lede-wide">
-            창원, 마산, 진해, 김해, 밀양, 함안은 승강기 시간, 골목 반출, 임대 종료일이
-            다릅니다. 인테리어철거와 상가철거, 화장실과 도배장판, 우물천정은 그 조건 위에
-            올라갑니다.
+            창원, 마산, 진해, 김해, 밀양, 함안을 시 단위로 안내하고, 상담이 잦은 읍·면·동은
+            현장 조건이 다르게 적혀 있습니다. 승강기 시간, 골목 반출, 임대 종료일이 견적을
+            바꿉니다.
           </p>
         </div>
       </section>
       <section className="band">
-        <div className="wrap area-cards">
-          {areas.map((area) => (
-            <Link key={area.slug} to={`${PATHS.region}/${area.slug}`} className="area-card">
-              <span>{area.places[0]}</span>
-              <h2>{area.name} 철거·인테리어</h2>
-              <p>{area.headline}</p>
-              <em>{area.region}</em>
-            </Link>
-          ))}
+        <div className="wrap">
+          <div className="section-title">
+            <h2>지역별 안내</h2>
+            <p className="sub">시·군 페이지에서 철거와 인테리어를 그 지역 조건으로 읽습니다.</p>
+          </div>
+          <div className="city-board">
+            {areas.map((area) => (
+              <Link key={area.slug} to={`${PATHS.region}/${area.slug}`} className="city-card">
+                <em>{area.region}</em>
+                <h2>{area.name} 철거·인테리어</h2>
+                <p>{area.lead}</p>
+                <span>자세히 보기</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="band band-tight">
+        <div className="wrap">
+          <div className="section-title">
+            <h2>상담이 잦은 읍·면·동</h2>
+            <p className="sub">동네마다 먼저 묻는 공종이 다릅니다. 같은 문장을 반복하지 않습니다.</p>
+          </div>
+          <div className="dong-grid">
+            {districtGuides.map((item) => (
+              <Link key={item.dong} to={`${PATHS.region}/${item.slug}`} className="dong-card">
+                <small>
+                  {item.city} · {item.focus}
+                </small>
+                <strong>{item.dong}</strong>
+                <p>{item.line}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>
