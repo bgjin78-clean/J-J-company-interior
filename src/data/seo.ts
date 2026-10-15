@@ -81,14 +81,14 @@ export function seoEntries(): SeoEntry[] {
       path: PATHS.cheolgeo,
       title: DEMOLITION_TITLE,
       description: DEMOLITION_DESCRIPTION,
-      h1: '철거·정리는 비울 곳만 걷습니다',
+      h1: '철거·정리는 다음 사용을 위한 합리적인 철거입니다',
       placename: '창원시',
     },
     {
       path: PATHS.interior,
       title: INTERIOR_TITLE,
       description: INTERIOR_DESCRIPTION,
-      h1: '인테리어는 손보는 칸만 닫습니다',
+      h1: '필요한 곳만 인테리어합니다',
       placename: '창원시',
     },
     {

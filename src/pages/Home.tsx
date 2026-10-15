@@ -80,8 +80,8 @@ export function HomePage() {
       <section className="band">
         <div className="wrap">
           <div className="section-title">
-            <h2>맡기는 방식을 먼저 고릅니다</h2>
-            <p className="sub">철거만, 인테리어만, 해체 다음 마감. 세 가지를 한 문장에 섞지 않습니다.</p>
+            <h2>시공할 방식을 먼저 고릅니다</h2>
+            <p className="sub">인테리어만 할지, 철거·정리만 할지, 철거한 뒤 인테리어까지 할지를 먼저 정합니다.</p>
           </div>
           <div className="choice-grid">
             {engagements.map((item) => (
@@ -95,30 +95,34 @@ export function HomePage() {
       </section>
 
       <section className="band band-tight">
-        <div className="wrap home-split">
-          <div>
-            <div className="section-title">
-              <h2>철거·정리</h2>
-            </div>
-            <ul className="name-list">
-              {demolitionServices.map((item) => (
-                <li key={item.id}>
-                  <Link to={`${PATHS.cheolgeo}#${item.id}`}>{item.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
+        <div className="wrap">
+          <div className="trade-block">
             <div className="section-title">
               <h2>인테리어</h2>
+              <p className="sub">이번에 손볼 곳만 고릅니다.</p>
             </div>
-            <ul className="name-list">
+            <div className="trade-grid">
               {interiorServices.map((item) => (
-                <li key={item.id}>
-                  <Link to={`${PATHS.interior}#${item.id}`}>{item.title}</Link>
-                </li>
+                <Link key={item.id} to={`${PATHS.interior}#${item.id}`} className="trade-card">
+                  <strong>{item.title}</strong>
+                  <p>{item.summary}</p>
+                </Link>
               ))}
-            </ul>
+            </div>
+          </div>
+          <div className="trade-block">
+            <div className="section-title">
+              <h2>철거·정리</h2>
+              <p className="sub">다음에 쓰기 좋게, 필요한 곳만 걷어 내고 치웁니다.</p>
+            </div>
+            <div className="trade-grid">
+              {demolitionServices.map((item) => (
+                <Link key={item.id} to={`${PATHS.cheolgeo}#${item.id}`} className="trade-card">
+                  <strong>{item.title}</strong>
+                  <p>{item.summary}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

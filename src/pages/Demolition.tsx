@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { ServiceCards } from '../components/ServiceCards'
-import { DEMOLITION_DESCRIPTION, DEMOLITION_TITLE, PATHS, REGION_LINE } from '../data/seo'
+import { DEMOLITION_DESCRIPTION, DEMOLITION_TITLE, PATHS } from '../data/seo'
 import { SITE, phoneHref } from '../data/site'
 import { demolitionServices } from '../data/services'
 
@@ -21,11 +21,11 @@ export function DemolitionPage() {
         <div className="wrap page-hero-grid">
           <div>
             <p className="kicker">철거·정리</p>
-            <h1>철거·정리는 비울 곳만 걷습니다</h1>
+            <h1>철거·정리는 다음 사용을 위한 합리적인 철거입니다</h1>
             <p className="lede">
-              {REGION_LINE}의 집과 상가를 받습니다. 인테리어 전 해체, 임대가 끝난 원상복구,
-              상가철거와 식당철거, 물을 쓰는 칸, 한 구간만 여는 부분철거, 잔재 정리까지
-              현장 범위에 맞춰 진행합니다.
+              부산, 경남 전지역의 집과 상가를 상담합니다. 다음에 어떻게 쓸지를 보고, 꼭
+              필요한 곳만 철거하고 정리합니다. 인테리어 전 철거, 임대가 끝난 원상복구,
+              상가와 식당 철거, 욕실·주방, 일부만 하는 부분철거까지 범위에 맞게 진행합니다.
             </p>
           </div>
           <img src="/images/partial.jpg" alt="한 구간만 걷어 낸 부분철거 현장" />
@@ -59,7 +59,7 @@ export function DemolitionPage() {
             <p className="kicker">JJ애드컴퍼니</p>
             <h2>{SITE.phoneDisplay}</h2>
             <p>
-              {SITE.hours} · {REGION_LINE}
+              {SITE.hours} · 부산, 경남 전지역
             </p>
           </div>
           <a className="btn btn-solid" href={phoneHref}>

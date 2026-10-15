@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Seo } from '../components/Seo'
 import { ServiceCards } from '../components/ServiceCards'
-import { INTERIOR_DESCRIPTION, INTERIOR_TITLE, PATHS, REGION_LINE } from '../data/seo'
+import { INTERIOR_DESCRIPTION, INTERIOR_TITLE, PATHS } from '../data/seo'
 import { SITE, phoneHref } from '../data/site'
 import { interiorServices } from '../data/services'
 
@@ -20,11 +20,11 @@ export function InteriorPage() {
         <div className="wrap page-hero-grid">
           <div>
             <p className="kicker">인테리어</p>
-            <h1>인테리어는 손보는 칸만 닫습니다</h1>
+            <h1>필요한 곳만 인테리어합니다</h1>
             <p className="lede">
-              {REGION_LINE}. 화장실, 주방, 싱크대, 타일, 조명, 도배장판, 몰딩, 우물천정,
-              문과 부분수리까지 필요한 항목만 견적에 넣습니다. 가벽이나 철거할 설비가 있을
-              때만 철거를 앞에 둡니다.
+              부산, 경남 전지역에서 진행합니다. 화장실, 주방, 싱크대, 타일, 조명, 도배장판,
+              몰딩, 우물천장, 문 교체와 부분수리 중에서 이번에 하는 것만 맡기시면 됩니다.
+              철거가 필요한 곳은 그 부분만 먼저 정리합니다.
             </p>
           </div>
           <img src="/images/ceiling.jpg" alt="간접조명이 들어간 우물천정" />
@@ -58,7 +58,7 @@ export function InteriorPage() {
             <p className="kicker">JJ애드컴퍼니</p>
             <h2>{SITE.phoneDisplay}</h2>
             <p>
-              {SITE.hours} · {REGION_LINE}
+              {SITE.hours} · 부산, 경남 전지역
             </p>
           </div>
           <a className="btn btn-solid" href={phoneHref}>

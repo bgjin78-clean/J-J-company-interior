@@ -1281,3 +1281,32 @@ button.city-chip { font: inherit; font-size: 1.02rem; }
   .svc-card { grid-template-columns: 1fr; }
   .svc-card img { height: 180px; min-height: 0; }
 }
+
+.trade-block + .trade-block { margin-top: 2.2rem; }
+
+.trade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.trade-card {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 0.95rem 1.05rem 1.05rem;
+}
+
+.trade-card strong { display: block; font-size: 1.12rem; }
+
+.trade-card p {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.trade-card:hover { outline: 2px solid var(--signal); }
+
+@media (max-width: 680px) {
+  .trade-grid { grid-template-columns: 1fr; }
+}
